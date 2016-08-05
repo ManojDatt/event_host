@@ -9,5 +9,12 @@ Rails.application.routes.draw do
 
   get 'home/contact_us'
 
+
+  
+  	resources :users 
+	delete "logout" => 'session#destroy'
+	get  "login"    => 'session#new'
+	post "login"    => 'session#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
