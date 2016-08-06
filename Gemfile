@@ -1,4 +1,15 @@
 source 'https://rubygems.org'
+
+
+gem 'active_admin_theme'
+gem 'active_skin' 
+gem 'active-admin-skin' 
+
+
+gem 'activeadmin', github: 'activeadmin'
+gem "devise"
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
 ####  for environment variable setting  ######
 gem 'figaro'
 #####  for dummy seed data create ####
