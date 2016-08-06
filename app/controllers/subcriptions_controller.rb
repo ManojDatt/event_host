@@ -1,0 +1,2 @@
+class SubcriptionsController < ApplicationController
+end

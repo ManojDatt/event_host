@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
-
 gem 'active_admin_theme'
 gem 'active_skin' 
 gem 'active-admin-skin' 
+gem 'active_admin_flat_skin' 
+gem 'face_of_active_admin' 
+gem 'active_bootstrap_skin'
 
+gem 'cloudinary'
 
 gem 'activeadmin', github: 'activeadmin'
 gem "devise"

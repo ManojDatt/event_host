@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
 
-mount_uploader :image, AvatarUploader
+      has_many :subscriptions
+      mount_uploader :image, AvatarUploader
 
 end
