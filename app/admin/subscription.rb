@@ -16,8 +16,17 @@ ActiveAdmin.register Subscription do
 actions :all, :except => [:new]
 
 index do
-  column :subscribed
+  column :id 
+  column "Participant Name" ,:user_name
+  column "Event" ,:ev_name
+  column :created_at
+  column "Payment" ,:payment
   actions
 end
+controller do
+    def scoped_collection
+      Subscription.includes(:user,:event)
+    end
+  end
 
 end
