@@ -11328,7 +11328,7 @@ ul.links li.last {
 /* line 90, /home/mohd.hussain/Desktop/event_host/app/assets/stylesheets/swipebox.scss */
 #swipebox-action #swipebox-prev, #swipebox-action #swipebox-next,
 #swipebox-action #swipebox-close {
-  background-image: url(../images/icons.png);
+  background-image: url("icons-9ad85d83c0f774da4e91e20323e924d7de3711a7a2f9fc59378987b2810e14fd.svg");
   background-repeat: no-repeat;
   border: none !important;
   text-decoration: none !important;
