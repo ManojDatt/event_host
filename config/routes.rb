@@ -6,7 +6,6 @@ Rails.application.routes.draw do
    root 'home#index'
    resources :home 
    get '/about'=>'home#about' , as:'about'
-   get '/rahu'=>'home#rahu' , as:'rahu'
    get '/blog'=>'home#blog', as: 'blog'
    get '/gallery'=>'home#gallery', as: 'gallery'
    get '/contact_us'=>'home#contact_us', as: 'contact_us'

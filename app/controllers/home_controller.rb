@@ -4,9 +4,8 @@ class HomeController < ApplicationController
   end
 
   def show
-    p"hello in show"
+   
      @event=Event.find(params[:id])
-     # redirect_to home_path(@event.id)
   end
 
   def about
@@ -22,9 +21,6 @@ class HomeController < ApplicationController
   def contact_us
   end
  
- def rahu
-  p"hello in rahu"
- # @event=Event.find(params[:id])
- end
+ 
 
 end
