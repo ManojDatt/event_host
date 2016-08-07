@@ -1,0 +1,6 @@
+class Subscription < ApplicationRecord
+    
+
+
+
+end

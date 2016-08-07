@@ -1,2 +1,73 @@
-<h1>Home#gallery</h1>
-<p>Find me in app/views/home/gallery.html.erb</p>
+<script src="js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript">
+    jQuery(function($) {
+      $(".swipebox").swipebox();
+    });
+  </script>
+<div class="photos">
+<div class="container">
+    <h2>Photos</h2>
+<!-- portfolio-section -->
+   <div class="portfolio"  id="portfolio">
+        <div id="portfoliolist">
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/images/img9.jpg" class="swipebox"  title="Image Title">
+               <%=image_tag("img9.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/images/img4.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img4.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+              <a href="/assets/images/img10.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img10.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/images/img14.jpg" class="swipebox"  title="Image Title">
+                <%=image_tag("img14.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/images/img15.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img15.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+
+          <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+              <a href="/assets/images/img17.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img17.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/images/img12.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img12.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box last">
+               <a href="/assets/images/img16.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img16.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box last">
+               <a href="/assets/images/img16.jpg" class="swipebox"  title="Image Title">dd <img src="/assets/images/img18.jpg" class="img-responsive" alt=""><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="clearfix"></div>
+      </div>
+          <div class="clearfix"></div>
+    </div>
+
+
+
+  </div>
+</div>

@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   end
 
   def about
+    @user_details=AdminUser.all
   end
 
   def blog
@@ -13,4 +14,5 @@ class HomeController < ApplicationController
 
   def contact_us
   end
+
 end

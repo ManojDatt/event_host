@@ -3,111 +3,185 @@
   <head>
     <title>EventHost</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+  body {
+      font: 400 15px/1.8 Lato, sans-serif;
+      color: #777;
+  }
+  h3, h4 {
+      margin: 10px 0 30px 0;
+      letter-spacing: 10px;
+      font-size: 20px;
+      color: #111;
+  }
+  .container {
+      padding: 80px 120px;
+  }
+  .person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+      -webkit-filter: grayscale(90%);
+      filter: grayscale(90%); /* make all photos black and white */
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+      background: #2d2d30;
+      color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+      padding: 0 0 15px 0;
+      border: none;
+      border-radius: 0;
+  }
+  .thumbnail p {
+      margin-top: 15px;
+      color: #555;
+  }
+  .btn {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #fff;
+      color: #000;
+  }
+  .modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
+  .nav-tabs li a {
+      color: #777;
+  }
+  #googleMap {
+      width: 100%;
+      height: 400px;
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+  }
+  .navbar {
+      font-family: Montserrat, sans-serif;
+      margin-bottom: 0;
+      background-color: #2d2d30;
+      border: 0;
+      font-size: 11px !important;
+      letter-spacing: 4px;
+      opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand {
+      color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+      color: #fff !important;
+  }
+  .navbar-nav li.active a {
+      color: #fff !important;
+      background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+      border-color: transparent;
+  }
+  .open .dropdown-toggle {
+      color: #fff;
+      background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+      color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+      background-color: red !important;
+  }
+  footer {
+      background-color: #2d2d30;
+      color: #f5f5f5;
+      padding: 32px;
+  }
+  footer a {
+      color: #f5f5f5;
+  }
+  footer a:hover {
+      color: #777;
+      text-decoration: none;
+  }
+  .form-control {
+      border-radius: 0;
+  }
+  textarea {
+      resize: none;
+  }
+  </style>
+  <script>
+    $(document).ready(function () {
+        size_li = $("#myList li").size();
+        x=3;
+        $('#myList li:lt('+x+')').show();
+        $('#loadMore').click(function () {
+            x= (x+1 <= size_li) ? x+1 : size_li;
+            $('#myList li:lt('+x+')').show();
+        });
+        $('#showLess').click(function () {
+            x=(x-1<0) ? 1 : x-1;
+            $('#myList li').not(':lt('+x+')').hide();
+        });
+    });
+  </script>
+
+<script src="js/jquery.min.js"></script>
+<link rel="stylesheet" href="css/swipebox.css">
+ <!------ Light Box ------>
+
   </head>
 
-  <body>
-  <div id="header">
-		<div class="wrapper clearfix">
-			<div id="logo">
-				<a href="index.html"><img src="images/logo12.png" alt="LOGO" height="100px" width="300px"></a>
-			</div>
-			<ul id="navigation">
-				<li class="selected">
-					<a href="index.html">Home</a>
-				</li>
-				<li>
-					<a href="about.html">About</a>
-				</li>
-				<li>
-					<a href="blog.html">Blog</a>
-				</li>
-				<li>
-					<a href="gallery.html">Gallery</a>
-				</li>
-				<li>
-					<a href="contact.html">Contact Us</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div id="contents">
-		<!-- <div id="adbox">
-			<div class="wrapper clearfix">
-				<div class="info">
-					<h1>Sonsectetur adipiscing elit.</h1>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vitae quam et tortor consequat porta. Sed faucibus, ligula quis mollis lobortis, diam felis tempus enim, a vestibulum eros quam ac magna. Vestibulum varius porttitor elit, et vulputate odio egestas sit amet.
-					</p>
-				</div>
-			</div>
-			<div class="highlight">
-				<h2>Lorem ipsum dolor sit amet - <i>consectetur adipiscing elit.</i></h2>
-			</div>
-		</div> -->
-		<%= yield %>
-		<div class="body clearfix">
-			<div class="click-here">
-				
-				<img class="click-here bold" src="images/Banner1.png" alt="Img" height="230" width="220"> </a>
-			</div>
-			<p style="font-size:12px;">
-			<!-- <h1>Dance Pe Dance</h1> -->
-				 Enter your text here about album Enter your text here about album Enter your text here about album Enter your text here about album Enter your text here about album Enter your text here about album Enter your text here about album Enter your text here about album  
-			</p>
-		</div>
-	</div>
-	<div id="footer">
-		<ul id="featured" class="wrapper clearfix">
-			<li>
-				<a href="dance.html">
-				<img class="img-circle bold" src="images/buttons_2.png" alt="Img" height="204" width="220"></a>
-			</li>
-			<li>
-			<a href="SurTaal.html">
-				<img class="img-circle bold" src="images/buttons.png" alt="Img" height="204" width="220"></a>
-				
-			</li>
-			<li>
-			<a href="actingKing.html">
-				<img class="img-circle bold" src="images/buttons_3.png" alt="Img" height="204" width="220"></a>
-				
-			</li>
-			<li>
-			<a href="bhojpuriya.html">
-				<img class="img-circle bold" src="images/buttons_4.png" alt="Img" height="204" width="204"></a>
-				
-			</li>
 
-		</ul>
-		<div class="body">
-			<div class="wrapper clearfix">
-				<div id="links">
-					<div>
-						<h4>Connect With Us</h4>
-						<!-- <ul>
-							<li>
-						 -->		<a class = "test" href="https://plus.google.com/u/0/up/subscribe" target="_blank">Google +</a><br>
-							<!-- </li>
-							<li> -->
-								<a class = "test" href="http://www.facebook.com/" target="_blank">Facebook</a><br>
-							<!-- </li>
-							<li> -->
-								<a class = "test" href="http://www.youtube.com/" target="_blank">Youtube</a><br>
-							
-							<!--  -->
-					</div>
-									<p class="footnote">
-					© Copyright © 2023.Company name all rights reserved
-				</p>
-				</div>
-				
+ <body id="bandtop" data-spy="scroll" data-target=".navbar" data-offset="50">
+   <%=render'navbar'%>
+    <!-- Container (The Band Section) -->
+    <%= yield%>
+    <%= render"home/footer"%>
+    <!-- Footer -->
 
-			</div>
-		</div>
-	</div>
-    
-  </body>
+</body>
+
 </html>
