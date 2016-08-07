@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   before_action :find_event , only:[:show]
 
   def index
-    @event=Event.all
+    @events=Event.all
   end
 
   def show
