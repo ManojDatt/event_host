@@ -24,6 +24,7 @@ index do
     column :registration_closing_date
     column :event_date
     column :status
+    actions name: "Actions"
 end
 
 
