@@ -1,0 +1,110 @@
+<% p "in show html"%>
+<div class="details">
+		<div class="container">
+			<div class="det_pic">
+			 
+				  <%=image_tag(@event.image.url ,class:"img-responsive")%>
+			</div>
+			<div class="det_text">
+				<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </p>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics</p>
+			</div>
+			<ul class="links">
+				  		 <li><span class="icon_text">Event Date and Times :<%=@event.event_date%></span></li>
+				  		 <li><span class="icon_text">Location :
+				  		 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</span></a></li>
+				    </ul>
+					
+					<ul class="links_bottom">
+		  		    	<li>
+		  		    		<div class="well">
+		  		    		<div class="panel panel-default">
+							  <div class="panel-heading">Terms And Conditions</div>
+							  <div class="panel-body">
+							     Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,
+							  </div>
+							</div>
+							 <button class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModal">Subscribe Event !</button>
+							</div>
+							</li>
+					 </ul>
+		  		    </ul>
+			 <div class="comments1">
+								<h4>COMMENTS</h4>
+			  				<div class="comments-main">
+									<div class="col-md-2 cmts-main-left">
+										<%=image_tag("avatar.png",class:"img-responsive")%>
+									</div>
+									<div class="col-md-10 cmts-main-right">
+										<h5>TOM BROWN</h5>
+										<p>Vivamus congue turpis in augue pellentesque scelerisque. Pellentesque aliquam laoreet sem nec ultrices. Fusce blandit nunc vehicula massa vehicula tincidunt. Nam venenatis cursus urna sed gravida. Ut tincidunt elit ut quam malesuada consequat. Sed semper purus sit amet lorem elementum faucibus.</p>
+										<div class="cmts">
+											<div class="cmnts-left">
+												<p>On April 14, 2014, 18:01</p>
+											</div>
+											<div class="cmnts-right">
+												<a href="#">Reply</a>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+			  				</div>
+			<div class="lev">
+			<div class="leave">
+				<h4>Leave a comment</h4>
+				</div>
+				<%=form_for :comment, url:home_path do |f|%>
+				<label for="author">Name</label>
+				<%=f.text_field :name, class:"form-control"%>
+				<label for="author">Email</label>
+				<%=f.text_field :email, class:"form-control"%>
+				
+				<label for="author">Comment</label>
+				<%=f.text_area :name, class:"form-control"%>
+				<div class="clearfix"></div>
+				<%=f.submit"Send", class:"btn btn-default btn-lg btn-block"%>
+				<div class="clearfix"></div>
+				<% end%>
+
+			</div>
+				  
+		</div>
+	</div>
+	
+	 <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+              <button type="submit" class="btn btn-block">Pay
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
