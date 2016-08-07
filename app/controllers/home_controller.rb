@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def show
      @event=Event.find(params[:id])
-     render  template: "show"
+     respond_to :html
      
   end
 
