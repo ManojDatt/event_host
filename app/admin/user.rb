@@ -49,7 +49,7 @@ show do
 end
 controller do
     def scoped_collection
-      User.includes(:subscription)
+      User.includes(:subscriptions)
     end
   end
 

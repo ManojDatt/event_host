@@ -13,7 +13,7 @@ class User < ApplicationRecord
    
 
    def no_of_subscription
-     @no_of_subscription = self.subscriptions.count
+    self.subscriptions.count
    end
 
    def subscribed_events
