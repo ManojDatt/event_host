@@ -1,14 +1,12 @@
 class HomeController < ApplicationController
-
-
-
   def index
     @events=Event.all
   end
 
   def show
+    p"hello in show"
      @event=Event.find(params[:id])
-     respond_to :html
+     redirect_to '/'
      
   end
 
