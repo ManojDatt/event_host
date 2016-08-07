@@ -6,7 +6,10 @@ class HomeController < ApplicationController
   def show
     p"hello in show"
      @event=Event.find(params[:id])
-     redirect_to '/'
+      respond_to do |format|
+    format.html
+  end
+     # redirect_to '/'
      
   end
 
