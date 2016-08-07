@@ -1,9 +1,17 @@
 class HomeController < ApplicationController
+
+  before_action :find_event , only:[:show]
+
   def index
+    @event=Event.all
+  end
+
+  def show
+     
   end
 
   def about
-    @user_details=AdminUser.all
+   
   end
 
   def blog
@@ -13,6 +21,12 @@ class HomeController < ApplicationController
   end
 
   def contact_us
+  end
+  
+  private 
+  def find_event
+    
+    #@event=Event.find(params[:id])
   end
 
 end
