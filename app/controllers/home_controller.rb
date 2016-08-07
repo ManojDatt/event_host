@@ -8,6 +8,8 @@ class HomeController < ApplicationController
 
   def show
      @event=Event.find(params[:id])
+     render  template: "home/show"
+     
   end
 
   def about
