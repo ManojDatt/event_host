@@ -39,7 +39,6 @@ show do
       row :address
       row :age
       row :dob
-      row :subscribed_events 
       row :no_of_subscription 
       row 'Subscribed Events ' do |n|
         user.subscribed_events.map(&:ev_name).join("<br />").html_safe
