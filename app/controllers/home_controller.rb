@@ -26,7 +26,7 @@ class HomeController < ApplicationController
   private 
   def find_event
     
-    #@event=Event.find(params[:id])
+    @event=Event.find(params[:id])
   end
 
 end
