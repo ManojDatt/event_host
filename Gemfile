@@ -1,18 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'active_admin_theme'
-gem 'active_skin' 
-gem 'active-admin-skin' 
-gem 'active_admin_flat_skin' 
-gem 'face_of_active_admin' 
-gem 'active_bootstrap_skin'
 
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0'
 gem 'cloudinary'
-
-gem 'activeadmin', github: 'activeadmin'
-gem "devise"
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-
 ####  for environment variable setting  ######
 gem 'figaro'
 #####  for dummy seed data create ####
@@ -21,12 +12,13 @@ gem 'faker'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
 gem 'pg'
-gem 'carrierwave'
-# gem 'activeadmin', github: 'activeadmin'
 
-# gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'carrierwave'
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server

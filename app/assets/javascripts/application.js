@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jssor.slider.debug
+//= require jssor.slider.min
+//= require jssor.slider.mini
+//= require jquery.swipebox.min
 //= require bootstrap-sprockets
 //= require_tree .
+

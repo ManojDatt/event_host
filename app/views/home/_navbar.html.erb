@@ -1,24 +1,25 @@
-
-<nav class="navbar navbar-inverse navbar-fixed-top" style="background:black;">
+ <nav class="navbar navbar-inverse navbar-fixed-top" style="background:black;">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#myPage"><%=image_tag('logo12.png', class:"img-responsive img-rounded", width:'48%;', height:'12%;')%></a>
+        <span class="icon-bar"></span>
+
     </div>
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">HOME</a></li>
-        <li><a href="#">ABOUT US</a></li>
-        <li><a href="#">BLOGS</a></li>
-        <li><a href="#">GALLERY </a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        
+      <ul class="nav navbar-nav" >
+        <li><%= image_tag('logo12.png', class:"img-responsive img-rounded", width:'48%;', height:'12%;')%></li>
+         <li><%=link_to"HOME",root_path%></li>
+        <li><%=link_to"ABOUT US",home_about_path%></li>
+        <li><%=link_to"BLOG",home_blog_path%></li>
+        <li><%=link_to"GALLERY",home_gallery_path%></li>
+
       </ul>
+
+
     </div>
   </div>
 </nav>

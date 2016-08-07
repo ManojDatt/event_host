@@ -1,2 +1,69 @@
-<h1>Home#gallery</h1>
-<p>Find me in app/views/home/gallery.html.erb</p>
+<script src="js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript">
+    jQuery(function($) {
+      $(".swipebox").swipebox();
+    });
+  </script>
+<div class="photos">
+<div class="container">
+    <h2>Photos</h2>
+<!-- portfolio-section -->
+   <div class="portfolio"  id="portfolio">
+        <div id="portfoliolist">
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/img9-bebb2c09121b97441435d641bbc217ca784eea8b0f8645b9fa85d54865d385db.jpg" class="swipebox"  title="Image Title">
+               <%=image_tag("img9.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/img4-0dbed09742a84be59701a7f7f575c5827dd757e31301af3ac2aa87eedfedcb29.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img4.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+              <a href="/assets/img10-4a4aa836ae75269b5935bc48ff847a745e88b28296325362f1218ae4e510e88d.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img10.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/img14-7a1a443aecf0a297dec3d7c388df319e844a66ecb8f11929c54c03b585e7fdcf.jpg" class="swipebox"  title="Image Title">
+                <%=image_tag("img14.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/img15-f7dc488f8742ac875793ce4ce1c63408cba93eb13f274b46d6248bc50a95d660.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img15.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+
+
+          <div class="portfolio card mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="card" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+              <a href="/assets/img17-f57f78dc50458992b09e7f208cef65d71294dc4e5338e1aaeb0c1755a41262c2.jpg" class="swipebox"  title="Image Title"> <%=image_tag("img17.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+            </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box">
+               <a href="/assets/logo12-c8423bd521637dbea49551245d6fd853355e62c8cfa2a2f8da34c11df62715ec.png" class="swipebox"  title="Image Title"> <%=image_tag("img12.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
+            <div class="portfolio-wrapper grid_box last">
+               <a href="/assets/img16-e36a9bcb8181309ee584f367d953111e2fdeccbf0e6d7ce35a445cbb704499b8.jpg" class="swipebox"  title="Image Title">dff <%=image_tag("img16.jpg" ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
+             </div>
+          </div>
+
+          <div class="clearfix"></div>
+      </div>
+          <div class="clearfix"></div>
+    </div>
+
+
+
+  </div>
+</div>
