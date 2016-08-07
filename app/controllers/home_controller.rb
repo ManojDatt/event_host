@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
 
-  before_action :find_event , only:[:show]
+
 
   def index
     @events=Event.all
   end
 
   def show
-     
+     @event=Event.find(params[:id])
   end
 
   def about
@@ -22,11 +22,6 @@ class HomeController < ApplicationController
 
   def contact_us
   end
-  
-  private 
-  def find_event
-    
-    @event=Event.find(params[:id])
-  end
+ 
 
 end
