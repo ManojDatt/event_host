@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :subscriptions
+    has_many :events ,through: :subscriptions , dependent: :destroy
     #validates :name, :f_name, :phone, :address, :email ,presence: true                                 
 	mount_uploader :image, AvatarUploader
 

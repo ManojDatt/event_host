@@ -9,7 +9,4 @@ class Subscription < ApplicationRecord
    def payment
    	@payment = "paid"
    end
-
-
-
 end

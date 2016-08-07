@@ -14,8 +14,9 @@ ActiveAdmin.register Subscription do
 # end
 
 actions :all, :except => [:new]
-
-index do
+config.batch_actions = true
+index do 
+  selectable_column
   column :id 
   column "Participant Name" ,:user_name
   column "Event" ,:ev_name

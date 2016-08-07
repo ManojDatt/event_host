@@ -15,9 +15,10 @@ ActiveAdmin.register User do
 
 actions :all, :except => [:new,:destroy]
 
-	
+config.batch_actions = true
 index do 
-	column :name
+  selectable_column
+	  column :name
     column "Father Name", :f_name  
     column :age
     column :dob
