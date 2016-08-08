@@ -1,9 +1,15 @@
 class HomeController < ApplicationController
   def index
+    @events=Event.all
+  end
+
+  def show
+     @user = User.new   
+     @event=Event.find(params[:id])
   end
 
   def about
-    @user_details=AdminUser.all
+   
   end
 
   def blog
@@ -14,5 +20,7 @@ class HomeController < ApplicationController
 
   def contact_us
   end
+ 
+ 
 
 end
