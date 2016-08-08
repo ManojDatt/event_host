@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -9,6 +10,6 @@ Rails.application.routes.draw do
    get '/blog'=>'home#blog', as: 'blog'
    get '/gallery'=>'home#gallery', as: 'gallery'
    get '/contact_us'=>'home#contact_us', as: 'contact_us'
-  
-   resources :subscriptions 
+   resources :posts
+   resources :subscription 
 end

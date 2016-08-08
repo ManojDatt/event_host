@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :events ,through: :subscriptions , dependent: :destroy
     #validates :name, :f_name, :phone, :address, :email ,presence: true                                 
 	  mount_uploader :image, AvatarUploader
-    accepts_nested_attributes_for  :subscriptions, :reject_if => :all_blank, :allow_destroy => true
+    accepts_nested_attributes_for  :subscriptions#, :reject_if => :all_blank, :allow_destroy => true
 	attr_accessor :no_of_subscription, :age, :subscribed_events
 
 
