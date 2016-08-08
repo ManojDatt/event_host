@@ -131,7 +131,7 @@
 			  </div>
 			  <div class="panel-body">
 			    
-			  	<%= fields_for  @user.subscriptions.new do |fields| %>
+			  	<%= fields_for  @user.subscriptions.new  do |fields| %>
 				  <div class="form-group">
               <%=fields.label "Card Holder Name",class:"glyphicon glyphicon-user"%>
               <%=fields.text_field :name ,class:"form-control", placeholder:"Enter card holder name" %>
