@@ -12,8 +12,18 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "style";
+@import "swipebox";
+
+@media screen and (min-width: 768px) {
+    .custom-class {
+        width: 70%; 
+        
+    }
+}
+
 .apple_pagination {
-  
+
   background: #f1f1f1;
   border: 1px solid #e5e5e5;
   text-align: center;
@@ -47,3 +57,52 @@
   }
 }
 
+.jssorb03 {
+            position: absolute;
+        }
+        .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 55px;
+            height: 55px;
+            text-align: center;
+            line-height: 21px;
+            color: black;
+            font-size: 12px;
+            background: url("/assets/rit-7c22109aed41b2404a263ea29bbd63cdfde04a0982706ae0b2a1ea11e41627f8.png") no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb03 div { background-position: -5px -4px; }
+        .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
+        .jssorb03 .av { background-position: -65px -4px; }
+        .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
+
+
+        .jssora03r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url("/assets/rit-7c22109aed41b2404a263ea29bbd63cdfde04a0982706ae0b2a1ea11e41627f8.png") no-repeat;
+            overflow: hidden;
+        }
+
+         .jssora03l {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 55px;
+            height: 55px;
+            cursor: pointer;
+            background: url("/assets/left-1b2605ab7c2a7a046840e0b778a191a5650f12acacce3468cbc970c046956ec9.png") no-repeat;
+            overflow: hidden;
+        }
+        .jssora03l { background-position: -3px -33px; }
+        .jssora03r { background-position: -63px -33px; }
+         .jssora03l:hover { border-radius:20px; background-color:black;opacity:0.6;}
+        .jssora03r:hover {border-radius:20px;background-color:black; opacity:0.6;}
+        .jssora03l.jssora03ldn { background-position: -243px -33px; }
+        .jssora03r.jssora03rdn { background-position: -303px -33px; }
