@@ -58,10 +58,10 @@ include Cloudinary::CarrierWave
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
-def extension_white_list
+  def extension_white_list
     %w(ogg ogv 3gp mp4 m4v webm mov m2v 3g2)
     # %w(ogg ogv 3gp mp4 m4v webm mov)
-  endd
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

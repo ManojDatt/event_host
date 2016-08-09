@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20160809051445) do
   end
 
   create_table "images", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.json     "avatars"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "avatars",         default: [],              array: true
     t.integer  "avatarable_id"
     t.string   "avatarable_type"
   end
@@ -107,9 +107,9 @@ ActiveRecord::Schema.define(version: 20160809051445) do
   end
 
   create_table "videos", force: :cascade do |t|
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.json     "avatars"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "avatars",         default: [],              array: true
     t.integer  "avatarable_id"
     t.string   "avatarable_type"
   end

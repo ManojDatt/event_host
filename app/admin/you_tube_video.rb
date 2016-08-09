@@ -13,6 +13,12 @@ ActiveAdmin.register YouTubeVideo do
 #   permitted
 # end
 index do 
+ column :id
+ column :link
+ # column :link do  |video|
+ # 	video_tag link
+ # end
+ column :title
+ column :created_at
 end
-
 end
