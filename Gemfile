@@ -17,6 +17,7 @@ gem 'carrierwave'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'youtube_it'
 
 
 # Use sqlite3 as the database for Active Record

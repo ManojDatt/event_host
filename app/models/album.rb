@@ -1,5 +1,6 @@
 class Album < ApplicationRecord
-	has_many :images ,dependent: :destroy
-	belongs_to :gallery
 	
+	belongs_to :gallery
+	has_many :videos, as: :avatarable, dependent: :destroy
+	has_many :images, as: :avatarable, dependent: :destroy
 end
