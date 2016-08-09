@@ -21,4 +21,11 @@ index do
  column :title
  column :created_at
 end
+
+form do |f|
+  f.inputs :link
+  f.inputs :title
+  actions
+  end 
+
 end
