@@ -17,6 +17,8 @@
   <div class="container">
    <div class="load_more">
            <ul id="myList">
+           <%@image = Image.last.avatars[0].url%>
+
               <!-- These are our grid blocks -->
               <li>
             <div class="l_g">
@@ -24,6 +26,7 @@
                 <div class="l_g_r">
                   <div class="dapibus">
                     <h2>Praesent dapibusneque id cursus faucioibus tortor neque tiegetas augue</h2>
+                    <%= image_tag(@image)%>
                     <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
                     <%=image_tag("img1.jpg" ,class:"img-responsive")%>
                     <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate. </p>
