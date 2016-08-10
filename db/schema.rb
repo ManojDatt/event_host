@@ -63,6 +63,11 @@ ActiveRecord::Schema.define(version: 20160810045702) do
     t.integer  "status"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
