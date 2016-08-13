@@ -1,29 +1,30 @@
 #= require active_admin/base
 
- $(function () {
+  $(function () {
     $("#event_image").change(function () {
-        $("#dvPreview").html("");
-        var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
-        if (regex.test($(this).val().toLowerCase())) {
-            if ($.browser.msie && parseFloat(jQuery.browser.version) <= 9.0) {
-                $("#dvPreview").show();
-                $("#dvPreview")[0].filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = $(this).val();
-            }
-            else {
-                if (typeof (FileReader) != "undefined") {
-                    $("#dvPreview").show();
-                    $("#dvPreview").append("<img />");
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = $("#dvPreview");
+            dvPreview.html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            $($(this)[0].files).each(function () {
+                var file = $(this);
+                if (regex.test(file[0].name.toLowerCase())) {
                     var reader = new FileReader();
                     reader.onload = function (e) {
-                        $("#dvPreview img").attr("src", e.target.result);
+                        var img = $("<img />");
+                        img.attr("style", "height:300px;width: 300px");
+                        img.attr("src", e.target.result);
+                        dvPreview.append(img);
                     }
-                    reader.readAsDataURL($(this)[0].files[0]);
+                    reader.readAsDataURL(file[0]);
                 } else {
-                    alert("This browser does not support FileReader.");
+                    alert(file[0].name + " is not a valid image file.");
+                    dvPreview.html("");
+                    return false;
                 }
-            }
+            });
         } else {
-            alert("Please upload a valid image file.");
+            alert("This browser does not support HTML5 FileReader.");
         }
     });
 });

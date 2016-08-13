@@ -18,8 +18,6 @@ index do
     column :id
     column :ev_name
     column :image do |img|
-      
-      end
       image_tag img.image_url(:admin_index)
     end
     column :registration_opening_date
@@ -29,10 +27,10 @@ index do
     actions name: "Actions"
 end
 form do |f|
-   
+   div class:"col-md-5"do
  f.semantic_errors *f.object.errors.keys # shows errors on :base
   f.inputs   :ev_name 
-  f.file_field :image
+  f.file_field :image 
   panel "Event Date" do
 f.inputs do 
   f.input :registration_opening_date, as: :datepicker, datepicker_options: { min_date: "2013-10-8",        max_date: "+3D" } 
@@ -40,8 +38,13 @@ f.inputs do
   f.input :event_date, as: :datepicker, datepicker_options: { min_date: "2013-10-8",        max_date: "+3D" }
   end
 
-  f.actions  
-  end     # adds the 'Submit' and 'Cancel' buttons
+  f.actions 
+  end 
+end
+div class:"col-md-4",id:"dvPreview"do
+
+end
+     # adds the 'Submit' and 'Cancel' buttons
 end
 
 # <input type="text" id="q_created_at_gteq_date" name="q[created_at_gteq_date]" value="" maxlength="10" class="datepicker hasDatepicker" size="12">
