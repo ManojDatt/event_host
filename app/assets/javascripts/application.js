@@ -14,6 +14,7 @@
 
 //= require bootstrap
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require jssor.slider.debug

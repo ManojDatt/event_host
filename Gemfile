@@ -21,7 +21,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'youtube_it'
-
+gem "jquery-ui-rails"
 
 # Use sqlite3 as the database for Active Record
 
