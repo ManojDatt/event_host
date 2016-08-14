@@ -18,5 +18,10 @@
 //= require jssor.slider.mini
 //= require jquery.swipebox.min
 //= require bootstrap-sprockets
+//= require jquery_nested_form
 //= require_tree .
 
+function printpage()
+{
+   window.print()
+}

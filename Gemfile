@@ -18,7 +18,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-
+gem "nested_form"
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
