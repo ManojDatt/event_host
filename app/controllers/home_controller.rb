@@ -9,10 +9,11 @@ class HomeController < ApplicationController
   end
 
   def about
-   
+      
   end
 
   def blog
+      @posts = Post.all.order('updated_at DESC')
   end
 
   def gallery
