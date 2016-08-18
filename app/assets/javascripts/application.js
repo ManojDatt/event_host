@@ -10,7 +10,11 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require multi-select
+
+//= require bootstrap
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require jssor.slider.debug
@@ -18,5 +22,10 @@
 //= require jssor.slider.mini
 //= require jquery.swipebox.min
 //= require bootstrap-sprockets
+//= require jquery_nested_form
 //= require_tree .
 
+function printpage()
+{
+   window.print()
+}

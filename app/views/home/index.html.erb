@@ -1,5 +1,161 @@
 
 
+<!-- Container (TOUR Section) -->
+<div id="tour" class="bg-1" >
+  <div class="container" style="width:1250px;">
+    <h3 class="text-center">EVENTS DATE</h3>
+    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
+
+    <br>
+   <!--===========================  Slider start ========================-->
+    <script>
+        jQuery(document).ready(function ($) {
+
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $AutoPlaySteps: 1,
+              $SlideDuration: 500,
+              $SlideWidth: 292,
+              $SlideSpacing: 10,
+              $Cols: 4,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$,
+                $Steps: 1
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$,
+                $SpacingX: 1,
+                $SpacingY: 1
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizing
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1200);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 50);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+
+ 
+
+
+    <div id="jssor_1" class="jumbotron " style="position: relative; box-shadow:1px 1px 20px 5px white; margin: 0 auto; top: 0px; left: -100px; width: 1200px; height: 450px; overflow: hidden; visibility: hidden;">
+
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 450px; overflow: hidden;">
+
+
+        <div class="thumbnail">
+          <%=image_tag("buttons.png" , class:"img-responsive")%>
+          
+          <center>
+          <div class="panel panel-default">
+            <div class="panel-heading" style="background:#333333;">
+              <h3 class="panel-title">Event Heading</h3>
+            </div>
+            <div class="panel-body">
+            Event short discription..
+             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+            </div>
+          </div>
+         
+          </center>
+        </div>
+
+        <div class="thumbnail">
+          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
+           <center>
+          <div class="panel panel-default">
+            <div class="panel-heading" style="background:#333333;">
+              <h3 class="panel-title">Event Heading</h3>
+            </div>
+            <div class="panel-body">
+            Event short discription..
+              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+            </div>
+          </div>
+         
+          </center>
+        </div>
+
+        <div class="thumbnail">
+         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
+           <center>
+          <div class="panel panel-default">
+            <div class="panel-heading" style="background:#333333;">
+              <h3 class="panel-title">Event Heading</h3>
+            </div>
+            <div class="panel-body">
+            Event short discription..
+              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+            </div>
+          </div>
+         
+          </center>
+        </div>
+
+        <div class="thumbnail">
+         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
+          <center>
+          <div class="panel panel-default">
+            <div class="panel-heading" style="background:#333333;">
+              <h3 class="panel-title">Event Heading</h3>
+            </div>
+            <div class="panel-body">
+            Event short discription..
+             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+            </div>
+          </div>
+         
+          </center>
+        </div>
+
+        <div class="thumbnail">
+         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
+           <center>
+          <div class="panel panel-default">
+            <div class="panel-heading" style="background:#333333;">
+              <h3 class="panel-title">Event Heading</h3>
+            </div>
+            <div class="panel-body">
+            Event short discription..
+             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+            </div>
+          </div>
+         
+          </center>
+        </div>
+
+      </div>
+        <!-- Bullet Navigator -->
+       
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+    </div>
+
+    <!-- #endregion Jssor Slider End -->
+</div>
+</div>
+
+   
+ 
+
+
 <div id="band" class="container text-center">
   <h3>THE BAND</h3>
   <%=image_tag("banner.jpg", class:"img-responsive img-circle")%>
@@ -68,274 +224,6 @@
   </div>
 </div>
 </div>
-
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1" >
-  <div class="container" style="width:1250px;">
-    <h3 class="text-center">EVENTS DATE</h3>
-    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
-
-   <!--===========================  Slider start ========================-->
-
-
-
-    <script>
-        jQuery(document).ready(function ($) {
-
-            var jssor_1_options = {
-              $AutoPlay: true,
-              $AutoPlaySteps: 4,
-              $SlideDuration: 160,
-              $SlideWidth: 200,
-              $SlideSpacing: 10,
-              $Cols: 4,
-              $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$,
-                $Steps: 4
-              },
-              $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$,
-                $SpacingX: 1,
-                $SpacingY: 1
-              }
-            };
-
-            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
-            //responsive code begin
-            //you can remove responsive code if you don't want the slider scales while window resizing
-            function ScaleSlider() {
-                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
-                if (refSize) {
-                    refSize = Math.min(refSize, 1309);
-                    jssor_1_slider.$ScaleWidth(refSize);
-                }
-                else {
-                    window.setTimeout(ScaleSlider, 30);
-                }
-            }
-            ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
-            //responsive code end
-        });
-    </script>
-
-    <style>
-
-        .jssorb03 {
-            position: absolute;
-        }
-        .jssorb03 div, .jssorb03 div:hover, .jssorb03 .av {
-            position: absolute;
-            /* size of bullet elment */
-            width: 21px;
-            height: 21px;
-            text-align: center;
-            line-height: 21px;
-            color: white;
-            font-size: 12px;
-            background: url('img/b03.png') no-repeat;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .jssorb03 div { background-position: -5px -4px; }
-        .jssorb03 div:hover, .jssorb03 .av:hover { background-position: -35px -4px; }
-        .jssorb03 .av { background-position: -65px -4px; }
-        .jssorb03 .dn, .jssorb03 .dn:hover { background-position: -95px -4px; }
-
-
-        .jssora03l, .jssora03r {
-            display: block;
-            position: absolute;
-            /* size of arrow element */
-            width: 55px;
-            height: 55px;
-            cursor: pointer;
-            background: url('img/a03.png') no-repeat;
-            overflow: hidden;
-        }
-        .jssora03l { background-position: -3px -33px; }
-        .jssora03r { background-position: -63px -33px; }
-        .jssora03l:hover { background-position: -123px -33px; }
-        .jssora03r:hover { background-position: -183px -33px; }
-        .jssora03l.jssora03ldn { background-position: -243px -33px; }
-        .jssora03r.jssora03rdn { background-position: -303px -33px; }
-    </style>
-
-
-    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: -80px; width: 1200px; height: 350px; overflow: hidden; visibility: hidden;">
-
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 350px; overflow: hidden;">
-
-
-        <div class="thumbnail">
-          <%=image_tag("buttons.png" , class:"img-responsive")%>
-          <p><strong>Paris</strong></p>
-          <p>Friday 27 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
-          <p><strong>New York</strong></p>
-          <p>Saturday 28 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-
-        <div class="thumbnail">
-          <%=image_tag("buttons.png" , class:"img-responsive")%>
-          <p><strong>Paris</strong></p>
-          <p>Friday 27 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
-          <p><strong>New York</strong></p>
-          <p>Saturday 28 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-
-
-        <div class="thumbnail">
-          <%=image_tag("buttons.png" , class:"img-responsive")%>
-          <p><strong>Paris</strong></p>
-          <p>Friday 27 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
-          <p><strong>New York</strong></p>
-          <p>Saturday 28 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <p><strong>San Francisco</strong></p>
-          <p>Sunday 29 November 2015</p>
-          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-        </div>
-
-
-
-
-
-            <a data-u="add" href="http://www.jssor.com" style="display:none">Event Slider</a>
-
-        </div>
-        <!-- Bullet Navigator -->
-        <div data-u="navigator" class="jssorb03" style="bottom:10px;right:10px;">
-            <!-- bullet navigator item prototype -->
-            <div data-u="prototype" style="width:21px;height:21px;">
-                <div data-u="numbertemplate" class="badge"></div>
-            </div>
-        </div>
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
-    </div>
-
-    <!-- #endregion Jssor Slider End -->
-</div>
-</div
-
-   <!--========================  slider End-->
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
-        </div>
-        <div class="modal-body">
-          <form role="form">
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
-              <input type="number" class="form-control" id="psw" placeholder="How many?">
-            </div>
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div>
-              <button type="submit" class="btn btn-block">Pay
-                <span class="glyphicon glyphicon-ok"></span>
-              </button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-            <span class="glyphicon glyphicon-remove"></span> Cancel
-          </button>
-          <p>Need <a href="#">help?</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<hr>
+<hr>
 <%=render 'contactus'%>
