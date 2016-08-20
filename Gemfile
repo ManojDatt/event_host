@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 gem 'cloudinary'
+gem 'multi-select-rails'
 ####  for environment variable setting  ######
 gem 'figaro'
 #####  for dummy seed data create ####
@@ -13,12 +15,16 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
 gem 'pg'
 
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+# gem 'carrierwave'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
-
+gem "nested_form"
+gem 'youtube_it'
+gem "jquery-ui-rails"
+gem 'json', '>=1.8.3'
 # Use sqlite3 as the database for Active Record
 
 # Use Puma as the app server
@@ -42,7 +48,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -14,10 +14,20 @@ ActiveAdmin.register Subscription do
 # end
 
 actions :all, :except => [:new]
-
-index do
-  column :subscribed
+config.batch_actions = true
+index do 
+  selectable_column
+  column :id 
+  column "Participant Name" ,:user_name
+  column "Event" ,:ev_name
+  column :created_at
+  column "Payment" ,:payment
   actions
 end
+controller do
+    def scoped_collection
+      Subscription.includes(:user,:event)
+    end
+  end
 
 end

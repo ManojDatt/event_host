@@ -10,8 +10,30 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+//= require jquery-ui
+
+.datepicker{
+	width:50%;
+}
+
+
+.col-md-5{
+	position:relative;
+	min-height:100px;
+	padding-left:15px;
+	padding-right:15px;
+	float:left;
+	width:60%;
+}
+.col-md-4{
+	position:relative;
+	
+	padding-left:95px;
+	padding-right:15px;
+	float:right;
+	width:30%;
+}
