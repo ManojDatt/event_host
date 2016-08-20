@@ -5,12 +5,19 @@ ActiveAdmin.register Album do
 
 
  form do |f|
-  f.input :title
+  div class:"col-md-5"do
+  f.inputs :title
   f.inputs  do
+    
     f.has_many :images, allow_destroy: true do |a|
-      a.input :avatar, :as => :file 
+      a.input :avatar, :as => :file ,:hint => a.object.avatar.present? ? image_tag(a.object.avatar.url(:admin_index)) : content_tag(:span, "")
+      #   a.input :avatar_cache, :as => :hidden 
     end
   end
+  end
+   div class:"col-md-2",id:"dvPreview"do
+      p "ndcjksndk"
+      end
   f.actions
 end
 config.batch_actions = true
@@ -20,7 +27,7 @@ config.batch_actions = true
     columns album.title
   end
   column "Images" do |album|
-    columns "Images" do
+    columns  do
       ul do
         album.images.each do |img|
           li do 
