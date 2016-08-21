@@ -19,9 +19,18 @@ body a{
 	-ms-transition:0.5s all;
 }
 .header {
-	padding: 2em 0;
+	padding: 2em 1em;
 	border-bottom: 1px solid #6f879a;
+	font-size: 20px;
 }
+.header:hover {
+	padding: 2em 1em;
+	border-bottom: 0px solid #6f879a;
+	font-size: 20.3px;
+	color: #303030;
+}
+
+.container{width:1200px;}
 .logo a{
 	display:block;
 }
@@ -41,7 +50,7 @@ body a{
 	letter-spacing: 1px;
 	font-weight: 500;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	font-size: 1em;
+	font-size: 20px;
 	margin: 0.8em 1.3em;
 }
 .head-nav a:hover,
@@ -67,7 +76,7 @@ body a{
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 20px;
 }
 .head-nav ul li a:hover,.head-nav ul li.active a{
 	color:#fff;

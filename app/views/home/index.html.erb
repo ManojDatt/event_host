@@ -1,159 +1,145 @@
-
-
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1" >
-  <div class="container" style="width:1250px;">
-    <h3 class="text-center">EVENTS DATE</h3>
-    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
-    <br>
-   <!--===========================  Slider start ========================-->
-    <script>
-        jQuery(document).ready(function ($) {
-
+<script>
+        jssor_1_slider_init = function() {
+            
+            var jssor_1_SlideoTransitions = [
+              [{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
+              [{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
+              [{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
+              [{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
+              [{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
+              [{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
+              [{b:10000,d:2000,x:-379,e:{x:7}}],
+              [{b:10000,d:2000,x:-379,e:{x:7}}],
+              [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
+            ];
+            
             var jssor_1_options = {
               $AutoPlay: true,
-              $AutoPlaySteps: 1,
-              $SlideDuration: 500,
-              $SlideWidth: 292,
-              $SlideSpacing: 10,
-              $Cols: 4,
+              $SlideDuration: 800,
+              $SlideEasing: $Jease$.$OutQuint,
+              $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlideo$,
+                $Transitions: jssor_1_SlideoTransitions
+              },
               $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$,
-                $Steps: 1
+                $Class: $JssorArrowNavigator$
               },
               $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$,
-                $SpacingX: 1,
-                $SpacingY: 1
+                $Class: $JssorBulletNavigator$
               }
             };
-
+            
             var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
+            
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizing
             function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
-                    refSize = Math.min(refSize, 1200);
+                    refSize = Math.min(refSize, 1520);
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
-                    window.setTimeout(ScaleSlider, 50);
+                    window.setTimeout(ScaleSlider, 30);
                 }
             }
             ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
             //responsive code end
-        });
+        };
     </script>
 
+    <style>
+      
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+      
+            width: 16px;
+            height: 16px;
+            background: url('assets/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { background-position: -7px -7px; }
+        .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+        .jssorb05 .av { background-position: -67px -7px; }
+        .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+        .jssora22l, .jssora22r {
+            display: block;
+            position: absolute;
+      
+            width: 40px;
+            height: 58px;
+            cursor: pointer;
+            background: url('assets/a22.png') center center no-repeat;
+            overflow: hidden;
+        }
+        .jssora22l { background-position: -10px -31px; }
+        .jssora22r { background-position: -70px -31px; }
+        .jssora22l:hover { background-position: -130px -31px; }
+        .jssora22r:hover { background-position: -190px -31px; }
+        .jssora22l.jssora22ldn { background-position: -250px -31px; }
+        .jssora22r.jssora22rdn { background-position: -310px -31px; }
+    </style>
+    <br><br><br><br>
+<div class="bg-1" >
  
-
-
-    <div id="jssor_1" class="jumbotron " style="position: relative; box-shadow:1px 1px 20px 5px white; margin: 0 auto; top: 0px; left: -100px; width: 1200px; height: 450px; overflow: hidden; visibility: hidden;">
-
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 450px; overflow: hidden;">
-
-
-        <div class="thumbnail">
-          <%=image_tag("buttons.png" , class:"img-responsive")%>
-          
-          <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-      </div>
-        <!-- Bullet Navigator -->
-       
-        <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
-    </div>
-
-    <!-- #endregion Jssor Slider End -->
-</div>
-</div>
+   
+    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
 
    
+
  
+
+    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 400px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('assets/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 400px; overflow: hidden;">
+            
+
+
+            <div data-p="225.00" data-po="80% 55%" style="display: none;">
+                <img data-u="image" src="assets/blue.jpg" />
+               <div style="position: absolute; top: 180px; left: 530px; width: 480px; height: 50px; font-size: 20px;  line-height: 60px;"><%=link_to"Participate Now ..",home_path(@events.first.id) ,class:"btn button"%></div>
+                <div style="position: absolute; top: 300px; left: 70px; width: 480px; height: 50px; font-size: 15px; color: #ffffff; line-height: 38px;">Build your slider with anything, includes image, content, text, html, photo, picture
+                </div>
+                
+            </div>
+
+
+            <a data-u="add" href="#" style="display:none">Full Width Slider</a>
+        
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+        <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
+    </div>
+    <script>
+        jssor_1_slider_init();
+    </script>
+
+    <!-- #endregion Jssor Slider End -->
+
+<!-- Container (TOUR Section) -->
+
+
+
+ </div>
+ </div>
 
 
 <div id="band" class="container text-center">
