@@ -9,7 +9,7 @@
 <!-- portfolio-section -->
 <%@albums.each do |album|%>
    <div class="portfolio"  id="portfolio">
-  <h4> <%= album.title%></h4>
+  <h4> <%= raw(album.title)%></h4>
     <%album.images.each do |image|%>
         <div id="portfoliolist">
           <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">

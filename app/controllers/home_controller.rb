@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   end
   def event
     @event = Event.find(params[:id])
+    @rules = @event.rules 
     @user = User.new
   end
   def gallery

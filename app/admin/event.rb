@@ -1,17 +1,9 @@
 ActiveAdmin.register Event do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
- permit_params   :ev_name, :image, :registration_opening_date, :registration_closing_date, :event_date, :status, :rules_raw, :rules
-#
-# or
-#Event id: nil, ev_name: nil, image: nil, created_at: nil, updated_at: nil, registration_opening_date: nil, registration_closing_date: nil, event_date: nil
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+ permit_params   :ev_name, :image, :registration_opening_date,
+                 :registration_closing_date, :event_date, 
+                 :status,:description, rules_attributes:[:id,:_destroy,:content]
+
 config.batch_actions = true
   index do 
   	selectable_column
@@ -24,7 +16,6 @@ config.batch_actions = true
       column "Reg Cl Date", :registration_closing_date
       column "Ev Date", :event_date
       column :status 
-      column :rules
       actions name: "Actions"
   end
 
@@ -33,9 +24,12 @@ config.batch_actions = true
         f.semantic_errors *f.object.errors.keys # shows errors on :base
         f.inputs   :ev_name 
         f.inputs :image  , as: :file 
+        f.inputs :description
         f.inputs :status, as: :select, collection: Event.statuses.keys
         f.inputs "Rules" do
-           f.input :rules_raw, :as => :text
+          f.has_many :rules, allow_destroy: true do |a|
+             a.input :content
+          end
         end
         panel "Event Date" do
           f.inputs do 
@@ -48,6 +42,5 @@ config.batch_actions = true
       div class:"col-md-2",id:"dvPreview"do
       end
    f.actions 
-  end
-
+ end
 end
