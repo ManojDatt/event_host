@@ -73,52 +73,52 @@
         .jssora22l, .jssora22r {
             display: block;
             position: absolute;
-      
+            
             width: 40px;
             height: 58px;
             cursor: pointer;
             background: url('assets/a22.png') center center no-repeat;
             overflow: hidden;
         }
-        .jssora22l { background-position: -10px -31px; }
-        .jssora22r { background-position: -70px -31px; }
-        .jssora22l:hover { background-position: -130px -31px; }
-        .jssora22r:hover { background-position: -190px -31px; }
+        .jssora22l { background-position: -10px -31px; background-color: #000; opacity: 0.6; border-radius:4px; }
+        .jssora22r { background-position: -70px -31px; background-color: #000; opacity: 0.6; border-radius:4px;}
+        .jssora22l:hover { background-position: -130px -31px; opacity: 0.7; }
+        .jssora22r:hover { background-position: -190px -31px; opacity: 0.7; }
         .jssora22l.jssora22ldn { background-position: -250px -31px; }
         .jssora22r.jssora22rdn { background-position: -310px -31px; }
     </style>
-    <br><br><br><br>
-<div class="bg-1" >
+    <br><br><br>
+<div class="bg-1" style="margin-top:19px; height:500px;">
  
-   
-    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
-   
-
- 
-
-    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1300px; height: 400px; overflow: hidden; visibility: hidden;">
+    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 16px; left: 0px; width: 1350px; height: 400px; overflow: hidden; visibility: hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('assets/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 400px; overflow: hidden;">
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1350px; height: 400px; overflow: hidden;">
             
-
+           <% @events.each do |event|%>
 
             <div data-p="225.00" data-po="80% 55%" style="display: none;">
-                <img data-u="image" src="assets/blue.jpg" />
-               <div style="position: absolute; top: 180px; left: 530px; width: 480px; height: 50px; font-size: 20px;  line-height: 60px;"><%=link_to"Participate Now ..",home_path(@events.first.id) ,class:"btn button"%></div>
-                <div style="position: absolute; top: 300px; left: 70px; width: 480px; height: 50px; font-size: 15px; color: #ffffff; line-height: 38px;">Build your slider with anything, includes image, content, text, html, photo, picture
+               
+                <%=image_tag(event.image.url, class:"header-img",html:{"data-u"=>"image"})%>
+             <div style="position: absolute; top: 100px; left: 530px; width: 480px; height: 50px; font-size: 20px;  line-height: 60px;">
+                 <h1 style=" color:white; margin-top:-90px;"><%=@events.last.ev_name%></h1> 
+                 <br><br>
+               <%=link_to"  Participate Now ..",event_path(event.id) ,class:"glyphicon-circle-arrow-right btn button glyphicon "%><br>
+                <h6 class="span" style="opacity:1; color:white;">(By participating you agree to our terms of events)</h6>
+               </div>
+                <div style="position: absolute; top: 300px; left: 70px; width: 480px; height: 50px; font-size: 15px; color: #ffffff; line-height: 38px; opacity:0.5; background-color:white; color:black;"><%= event.description ? raw(event.description.truncate(50, omission: '..... (continued)')) : " No Discription available !"%>
                 </div>
                 
             </div>
 
-
+            <% end%>
             <a data-u="add" href="#" style="display:none">Full Width Slider</a>
         
         </div>
+
         <!-- Bullet Navigator -->
         <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
             <!-- bullet navigator item prototype -->
@@ -143,7 +143,8 @@
 
 
 <div id="band" class="container text-center">
-  <h3>THE BAND</h3>
+<div class="content">
+  <h1>THE BAND</h1>
   <%=image_tag("banner.jpg", class:"img-responsive img-circle")%>
   <p><em>We love dance-music!</em></p>
   <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -210,6 +211,7 @@
   </div>
 </div>
 </div>
-<hr>
+<hr style="color:red;">
 <hr>
 <%=render 'contactus'%>
+</div>

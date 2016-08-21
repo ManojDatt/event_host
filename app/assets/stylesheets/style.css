@@ -20,15 +20,10 @@ body a{
 }
 .header {
 	padding: 2em 1em;
-	border-bottom: 1px solid #6f879a;
+	border-bottom: 0px solid #6f879a;
 	font-size: 20px;
 }
-.header:hover {
-	padding: 2em 1em;
-	border-bottom: 0px solid #6f879a;
-	font-size: 20.3px;
-	color: #303030;
-}
+
 
 .container{width:1200px;}
 .logo a{
@@ -84,7 +79,7 @@ body a{
 ul a:hover,
 ul a:focus {
 	outline: none;
-	color:#fff;
+	
 	text-decoration: none;
 }
 .cl-effect-15 a::before {
@@ -188,6 +183,7 @@ i.twt:hover {
 	padding: 2em 1.3em;
 	box-shadow: 0px 1px 5px -1px rgba(104, 123, 144, 0.31);
 	border-radius: 0.3em;
+
 }
 .content h2 {
 	text-align: center;
@@ -367,6 +363,13 @@ a.link:hover{
 	float: right;
 	width: 82%;
 }
+.btn-success {
+    border: 0;
+    border-radius: 4px;
+    padding: 0px 6px 1px ;
+    
+}
+
 i.ham {
 	width: 32px;
 	height: 32px;
@@ -416,8 +419,8 @@ i.lik {
 }
 /*--about--*/
 .about {
-	background: #f5f6f7;
-	padding: 3em 0;
+	
+	padding: 9em 0;
 }
 .biographys {
 	margin-top: 2em;
@@ -856,8 +859,9 @@ strong {
 	background:green;
 }
 .load_more{
-	text-align:center;
-	padding: 10px 0;
+	
+	margin-left:-50px;
+	width:1300px;
 }
 .l_g {
 	margin: 1em 0px;

@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-      has_many :subscriptions
+      has_many :subscriptions, dependent: :destroy
       has_many :users ,through: :subscriptions , dependent: :destroy
       mount_uploader :image, AvatarUploader
       enum status: [:Active, :Deactive, :Upcomming]
