@@ -20,33 +20,27 @@
       <div class="col-md-9" >
         <ul id="myList">
           <li>
+          <%if @posts.present? %>
+          <%@posts.each do |post|%>
+          <div class="l_g">
             <div class="col-md-12 praesent">
               <div class="l_g_r">
                 <div class="dapibus">
-                  <h2>Praesent dapibusneque id cursus faucioibus tortor neque tiegetas augue</h2>
+                  <h2><%= post.title %></h2>
                   <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
-                  <%=image_tag("img1.jpg" ,class:"img-responsive")%>
-                  <p>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate. </p>
+                  <%=image_tag(post.image.url ,class:"img-responsive") if post.image.present?%>
+                  <p> <%= Post.last.content%> </p>
+                  <center>
+                  <%=video_tag(post.video.url ,class:"img-responsive",  controls: true, autobuffer: true ,size: "400x200") if post.video.present?%>
+                  </center>
                 </div>
               </div>
             </div>
+             <div class="clearfix"></div> 
+             </div>
           </li>
-          <div class="clearfix"></div>                
-          <li>
-            <div class="l_g">
-              <div class="col-md-12 praesent">
-                <div class="l_g_r">
-                  <div class="dapibus">
-                    <h3>CURSUS FAUCIO</h3>
-                    <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
-                    <%=image_tag("img2.jpg" ,class:"img-responsive")%>
-                    <p>Phasellus ultrices nulla.Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate.Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate.Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate.   </p>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-            </div>
-          </li>
+               <%end%>  
+               <%end%>       
         </ul>
       </div>
       <div class="col-md-3">

@@ -1,17 +1,29 @@
 ActiveAdmin.register Post do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
+permit_params  :title, :content, :image, :video
 
+form do |f|
+ f.inputs :title 
+ f.inputs :content
+ f.inputs :image  , as: :file 
+ f.inputs :video  , as: :file 
+ f.actions
+end
+config.batch_actions = true
+  index do 
+  	selectable_column
+      column :id
+      column :title
+      column :image do |img|
+        image_tag img.image_url(:admin_index)
+      end
+      column :video do |vdo|
+      	video_tag(vdo.video_url, size: "150x100",controls: true)
+      end
+      column :content
+      column :created_at
+      column :updated_at
+      actions
+  end
 end
