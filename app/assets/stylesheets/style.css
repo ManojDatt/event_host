@@ -171,7 +171,7 @@ i.twt:hover {
 	background:#556a7f;
 }
 .content{
-	background:#f5f6f7;
+	background:#D1DAE4;
 	padding:3em 0;
 }
 .dapibus {
@@ -805,6 +805,7 @@ strong {
 }
 .details {
 	padding: 4em 0;
+	background: #D8DAE1;
 }
 /*-- --*/
 #myList li{

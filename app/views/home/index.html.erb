@@ -8,9 +8,6 @@
 
     <br>
    <!--===========================  Slider start ========================-->
-<link rel="stylesheet" type="text/css" media="print" href="print.css">
-
-<%= link_to "PRINT", '#', onclick: "printpage()" %>
     <script>
         jQuery(document).ready(function ($) {
 
@@ -62,25 +59,12 @@
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 450px; overflow: hidden;">
 
 
-        <div class="thumbnail">
-          <%=image_tag("buttons.png" , class:"img-responsive")%>
-          
-          <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
+
+
+         <% @events.each do |event|%>
 
         <div class="thumbnail">
-          <%=image_tag("buttons_2.png" , class:"img-responsive")%>
+          <%=image_tag( event.image.url , class:"img-responsive")%>
            <center>
           <div class="panel panel-default">
             <div class="panel-heading" style="background:#333333;">
@@ -88,60 +72,13 @@
             </div>
             <div class="panel-body">
             Event short discription..
-              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
+              <%=link_to"View Details", event_path(event.id) , class:"btn"%>
             </div>
           </div>
-         
           </center>
         </div>
 
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-              <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-          <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
-
-        <div class="thumbnail">
-         <%=image_tag("buttons_3.png" , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
-            </div>
-            <div class="panel-body">
-            Event short discription..
-             <%=link_to"View Details", home_path(@events.first.id) , class:"btn"%>
-            </div>
-          </div>
-         
-          </center>
-        </div>
+        <%end%>
 
       </div>
         <!-- Bullet Navigator -->

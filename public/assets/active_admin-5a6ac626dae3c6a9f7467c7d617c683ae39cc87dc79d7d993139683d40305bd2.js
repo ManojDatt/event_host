@@ -21172,6 +21172,16 @@ return $.widget( "ui.tabs", {
       })(this));
     };
 
+    CheckboxToggler.prototype.option = function(key, value) {
+      if ($.isPlainObject(key)) {
+        return this.options = $.extend(true, this.options, key);
+      } else if (key != null) {
+        return this.options[key];
+      } else {
+        return this.options[key] = value;
+      }
+    };
+
     return CheckboxToggler;
 
   })();
@@ -21484,7 +21494,11 @@ return $.widget( "ui.tabs", {
         return function() {
           _this.$params['per_page'] = _this.$element.val();
           delete _this.$params['page'];
-          return location.search = $.param(_this.$params);
+          if (typeof Turbolinks !== 'undefined') {
+            return Turbolinks.visit(window.location.href.split('?')[0] + '?' + $.param(_this.$params));
+          } else {
+            return location.search = $.param(_this.$params);
+          }
         };
       })(this));
     };
@@ -21504,13 +21518,23 @@ return $.widget( "ui.tabs", {
       return decodeURIComponent(value.replace(/\+/g, '%20'));
     };
 
+    PerPage.prototype.option = function(key, value) {
+      if ($.isPlainObject(key)) {
+        return this.options = $.extend(true, this.options, key);
+      } else if (key != null) {
+        return this.options[key];
+      } else {
+        return this.options[key] = value;
+      }
+    };
+
     return PerPage;
 
   })();
 
   $.widget.bridge('perPage', ActiveAdmin.PerPage);
 
-  $(function() {
+  $(document).on('ready page:load turbolinks:load', function() {
     return $('.pagination_per_page select').perPage();
   });
 
@@ -21613,26 +21637,45 @@ return $.widget( "ui.tabs", {
 }).call(this);
 (function() {
   $(document).on('ready page:load turbolinks:load', function() {
-    $('.clear_filters_btn').click(function() {
+    $('.clear_filters_btn').click(function(e) {
       var param, params, regex;
       params = window.location.search.slice(1).split('&');
       regex = /^(q\[|q%5B|q%5b|page|commit)/;
-      return window.location.search = ((function() {
-        var i, len, results;
-        results = [];
-        for (i = 0, len = params.length; i < len; i++) {
-          param = params[i];
-          if (!param.match(regex)) {
-            results.push(param);
+      if (typeof Turbolinks !== 'undefined') {
+        Turbolinks.visit(window.location.href.split('?')[0] + '?' + ((function() {
+          var i, len, results;
+          results = [];
+          for (i = 0, len = params.length; i < len; i++) {
+            param = params[i];
+            if (!param.match(regex)) {
+              results.push(param);
+            }
           }
-        }
-        return results;
-      })()).join('&');
+          return results;
+        })()).join('&'));
+        return e.preventDefault();
+      } else {
+        return window.location.search = ((function() {
+          var i, len, results;
+          results = [];
+          for (i = 0, len = params.length; i < len; i++) {
+            param = params[i];
+            if (!param.match(regex)) {
+              results.push(param);
+            }
+          }
+          return results;
+        })()).join('&');
+      }
     });
-    $('.filter_form').submit(function() {
-      return $(this).find(':input').filter(function() {
+    $('.filter_form').submit(function(e) {
+      $(this).find(':input').filter(function() {
         return this.value === '';
       }).prop('disabled', true);
+      if (typeof Turbolinks !== 'undefined') {
+        Turbolinks.visit(window.location.href.split('?')[0] + '?' + $(this).serialize());
+        return e.preventDefault();
+      }
     });
     return $('.filter_form_field.select_and_search select').change(function() {
       return $(this).siblings('input').prop({
@@ -21648,7 +21691,32 @@ return $.widget( "ui.tabs", {
   });
 
 }).call(this);
-(function() {
 
-
-}).call(this);
+  $(function () {
+    $("#event_image").change(function () {
+        if (typeof (FileReader) != "undefined") {
+            var dvPreview = $("#dvPreview");
+            dvPreview.html("");
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+            $($(this)[0].files).each(function () {
+                var file = $(this);
+                if (regex.test(file[0].name.toLowerCase())) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var img = $("<img />");
+                        img.attr("style", "height:300px;width: 300px");
+                        img.attr("src", e.target.result);
+                        dvPreview.append(img);
+                    }
+                    reader.readAsDataURL(file[0]);
+                } else {
+                    alert(file[0].name + " is not a valid image file.");
+                    dvPreview.html("");
+                    return false;
+                }
+            });
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+    });
+});
