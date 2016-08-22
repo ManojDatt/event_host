@@ -6,6 +6,7 @@
 	    <button class="btn-success"><%=@event.status%></button>
                <div style="font-size: 55px; color:black; line-height: 60px;"><b> <%=@event.ev_name%> </b>
 
+<<<<<<< HEAD
 
                 </div>
 
@@ -28,12 +29,27 @@
 				<p>There are many variations of passages of Lorem Ipsum availabel, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </p>
 				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics</p>
 
+=======
+<div class="details">
+		<div class="container">
+			<div class="container-fluid" >
+			</div>
+			<div class="det_text">
+			<%= image_tag(@event.image.url, size: "880x400", class:"img-responsive")%>
+			   <div class="panel panel-default">
+			     <div class="panel-heading">DESCRIPTION</div>
+				    <div class="panel-body">
+			             <%= raw(@event.description) if @event.description.present?%>
+			        </div>
+			   </div>
+>>>>>>> 74fc17b96e6c8ab0c8c069a6edde8074b7be238d
 			</div>	
 			<ul class="links">
 				  		 <li><span class="icon_text">Event Date and Times :<%=@event.event_date%></span></li>
 				  		 <li><span class="icon_text">Location :
 				  		 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</span></a></li>
 		    </ul>
+<<<<<<< HEAD
 
 			<ul class="det_text">
 			<h5 style="font-size:20px; font-width:bold;"><b>Terms And Conditions</b></h5>
@@ -44,6 +60,25 @@
 				 
 
 
+=======
+		    <div class="panel panel-default">
+							  <div class="panel-heading">TERMS AND CONDITIONS</div>
+							  <div class="panel-body">
+							  <%if @event.rules.present?%>
+							    <%count = 0 %>
+							    <% @event.rules.each do |rule|%>
+							        <%=count+=1%>. &nbsp <%= rule.content %> <br>
+							        <%end%>
+							        <%end%>
+							  </div>
+						</div>
+			<ul class="links_bottom">
+  		    	<li>
+  		    		<div class="well">
+	  		    		
+						 <button class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModal">Subscribe Event !</button>
+					</div>
+>>>>>>> 74fc17b96e6c8ab0c8c069a6edde8074b7be238d
 				</li>
 			 </ul>
 

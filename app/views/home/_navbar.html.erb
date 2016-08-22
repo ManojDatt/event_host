@@ -11,6 +11,7 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" >
+<<<<<<< HEAD
         <li ><%= image_tag('logo12.png', class:"img-responsive img-rounded", width:'48%;', height:'12%;')%></li>
         <% if params[:action]=='index'%>
         <li class="header active" ><%=link_to"HOME",root_path%></li>
@@ -38,6 +39,14 @@
         <li class="header"><%=link_to"BLOG",blog_path%></li>
         <li class="header "><%=link_to"GALLERY",gallery_path%></li>
         <% end%>
+=======
+        <li><%= image_tag('logo12.png', class:"img-responsive img-rounded", width:'48%;', height:'12%;')%></li>
+         <li><%=link_to"HOME",root_path%></li>
+        <li><%=link_to"ABOUT US",about_path%></li>
+        <li><%=link_to"BLOG",blog_path%></li>
+        <li><%=link_to"GALLERY",gallery_path%></li>
+        <li><%=link_to"YOUTUBE VIDEO",youtube_videos_path%></li>
+>>>>>>> 74fc17b96e6c8ab0c8c069a6edde8074b7be238d
       </ul>
 
 

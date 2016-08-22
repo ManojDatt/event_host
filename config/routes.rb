@@ -11,6 +11,7 @@ Rails.application.routes.draw do
    get '/gallery'=>'home#gallery', as: 'gallery'
    get '/contact_us'=>'home#contact_us', as: 'contact_us'
    get '/event/:id' =>'home#show_event', as: :event
+   get '/youtubevideos' =>'home#youtube_videos', as: :youtube_videos
    resources :posts
    resources :subscription 
 end
