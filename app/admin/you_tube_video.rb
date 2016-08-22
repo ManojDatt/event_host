@@ -20,6 +20,7 @@ index do
  # end
  column :title
  column :created_at
+ actions name: "Actions"
 end
 
 form do |f|

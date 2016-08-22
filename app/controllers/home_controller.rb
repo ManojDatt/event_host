@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   end
   def about
   end
+  def youtube_videos
+       @youtube_videos = YouTubeVideo.all.order('updated_at DESC')
+  end
   def blog
     @posts = Post.all.order('updated_at DESC')
   end
