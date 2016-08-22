@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require multi-select
-
-//= require bootstrap
 //= require jquery
+//= require bootstrap-sprockets
+//= require bootstrap
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-ui
+
+//= require jquery_nested_form
 //= require_tree .
 
 function printpage()

@@ -5,25 +5,27 @@
   </script>
 
 <div class="container">
-<div class="photos">
-    <h2>Alums</h2>
+<div class="photos" style="padding:8em 0;">
+    <h2>Albums</h2>
 <!-- portfolio-section -->
 <%@albums.each do |album|%>
    <div class="portfolio"  id="portfolio">
+   <div id="portfoliolist">
   <h4> <%= album.title%></h4>
+  
     <%album.images.each do |image|%>
-        <div id="portfoliolist">
+        
           <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
             <div class="portfolio-wrapper grid_box last">
                <a href="<%= image.avatar.url%>" class="swipebox"  title="Image Title">
-               <%=image_tag( image.avatar.url ,size: "150x200",class:"img-responsive") %><span class="zoom-icon"></span> </a>
+               <%=image_tag( image.avatar.url ,class:"img-responsive") %><span class="zoom-icon"></span> </a>
              </div>
           </div>
      <%end%>   
+     </div>
           <div class="clearfix"></div>
-      </div>
-<%end%>
+      
+<%end%></div>
           <div class="clearfix"></div>
     </div>
   </div>
-</div>

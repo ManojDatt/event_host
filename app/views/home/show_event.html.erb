@@ -12,7 +12,7 @@
                 
                  <h3><b><i><%=@event.created_at%></i></b></h3>
                  
-               <%=link_to"   Participate","" ,class:"btn button btn-lg btn-block glyphicon glyphicon-check", style:"width:60%; margin-top:100px;", "data-toggle"=>"modal", "data-target"=>"#myModal1"%>
+               <%=link_to"   Participate","" ,id:"participate",class:"btn btn-primary btn-lg btn-block glyphicon glyphicon-check", style:"width:60%; margin-top:100px;"%>
               
                <br>
                 <h6 class="span" style="opacity:1; color:black;">(By participating you agree to our terms of events)</h6>
@@ -208,3 +208,16 @@
       </div>
     </div>
   </div>
+
+
+
+
+<script type="text/javascript">
+
+	$('#myModal1').modal('toggle');
+	$(document).ready(function(){
+		$("#participate").click(function(){
+			$('#myModal1').modal('toggle');
+		});
+	});
+</script>

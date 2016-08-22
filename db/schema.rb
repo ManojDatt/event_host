@@ -88,14 +88,6 @@ ActiveRecord::Schema.define(version: 20160818114423) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "single_images", force: :cascade do |t|
-    t.string   "image"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.string   "imagable_type"
-    t.integer  "imagable_id"
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

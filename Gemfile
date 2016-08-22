@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-
-# gem 'mini_magick'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 gem 'cloudinary'
 gem 'multi-select-rails'
@@ -16,7 +13,7 @@ gem 'kaminari'
 gem 'pg'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-# gem 'carrierwave'
+
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
