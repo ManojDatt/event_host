@@ -8,10 +8,8 @@ ActiveAdmin.register Album do
   div class:"col-md-5"do
   f.inputs :title
   f.inputs  do
-    
     f.has_many :images, allow_destroy: true do |a|
       a.input :avatar, :as => :file ,:hint => a.object.avatar.present? ? image_tag(a.object.avatar.url(:admin_index)) : content_tag(:span, "")
-      #   a.input :avatar_cache, :as => :hidden 
     end
   end
   end

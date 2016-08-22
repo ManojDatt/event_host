@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818114423) do
+ActiveRecord::Schema.define(version: 20160821112958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,14 +55,13 @@ ActiveRecord::Schema.define(version: 20160818114423) do
   create_table "events", force: :cascade do |t|
     t.string   "ev_name"
     t.string   "image"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.date     "registration_opening_date"
     t.date     "registration_closing_date"
     t.date     "event_date"
     t.integer  "status"
     t.text     "description"
-    t.text     "rules",                     default: [],              array: true
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -81,11 +80,20 @@ ActiveRecord::Schema.define(version: 20160818114423) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
-    t.string   "content"
     t.string   "image"
     t.string   "video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "content"
+  end
+
+  create_table "rules", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "content"
+    t.string   "rule_for"
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_rules_on_event_id", using: :btree
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -125,6 +133,7 @@ ActiveRecord::Schema.define(version: 20160818114423) do
     t.string   "uid"
   end
 
+  add_foreign_key "rules", "events"
   add_foreign_key "subscriptions", "events"
   add_foreign_key "subscriptions", "users"
 end

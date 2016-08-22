@@ -6,6 +6,7 @@
 	    <button class="btn-success"><%=@event.status%></button>
                <div style="font-size: 55px; color:black; line-height: 60px;"><b> <%=@event.ev_name%> </b>
 
+
                 </div>
 
                  
@@ -26,12 +27,14 @@
 			
 				<p>There are many variations of passages of Lorem Ipsum availabel, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </p>
 				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics</p>
+
 			</div>	
 			<ul class="links">
 				  		 <li><span class="icon_text">Event Date and Times :<%=@event.event_date%></span></li>
 				  		 <li><span class="icon_text">Location :
 				  		 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</span></a></li>
 		    </ul>
+
 			<ul class="det_text">
 			<h5 style="font-size:20px; font-width:bold;"><b>Terms And Conditions</b></h5>
   		      <li>
@@ -40,8 +43,10 @@
 				     Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage,<br>
 				 
 
+
 				</li>
 			 </ul>
+
 			 <div class="comments1">
 								<h4>COMMENTS</h4>
 			  				<div class="comments-main">
@@ -194,17 +199,14 @@
 			  </div>
 			</div>
             </div>
-              <%=f.submit"Pay",class:"btn btn-block"%>
-                <span class="glyphicon glyphicon-ok"></span>
-            
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-            <span class="glyphicon glyphicon-remove"></span> Cancel
-          </button>
+              
           
         </div>
+        <div class="modal-footer">
+          <%=f.submit"Submit",class:"glyphicon glyphicon-ok btn btn-lg btn-block button",style:""%>
+               
+        </div>
+        <% end %>
       </div>
     </div>
   </div>
