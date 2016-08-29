@@ -17,6 +17,10 @@ ActiveAdmin.register Album do
       end
   f.actions
 end
+
+
+
+
 config.batch_actions = true
   index do 
     selectable_column

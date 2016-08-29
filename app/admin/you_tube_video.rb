@@ -1,32 +1,28 @@
 ActiveAdmin.register YouTubeVideo do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
  permit_params :uid,:link,:title
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+
 index do 
  column :id
  column :link
- # column :link do  |video|
- # 	video_tag link
- # end
  column :title
  column :created_at
  actions name: "Actions"
 end
 
+
 form do |f|
+	 div class:"col-md-5"do
   f.inputs :link
   f.inputs :title
+  f.inputs :desc
+   div class:"col-md-2",id:"video_review"do
+          br
+          text_node %{<iframe id="ytv_frame" width="560" height="315"  frameborder="0" allowfullscreen></iframe> }.html_safe
+      end
   actions
   end 
+
+end
 
 end

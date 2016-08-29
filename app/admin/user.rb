@@ -27,6 +27,16 @@ index do
     actions
 end
 
+  batch_action :notification, form: 
+  {
+  #type: %w[Offensive Spam Other],
+  message:  :textarea
+  } do |ids, inputs|
+  # inputs is a hash of all the form fields you requested
+   AdminUser.broadcast_msg_notification(ids , inputs[:message]) 
+  redirect_to collection_path, notice: "successfully send to users"
+end
+
 
 
 show do

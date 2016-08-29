@@ -27,4 +27,16 @@
             alert("This browser does not support HTML5 FileReader.");
         }
     });
+
+
+    $("#you_tube_video_link").change(function(){
+                    var video_review = $("#video_review");
+                var link  = $("#you_tube_video_link").val();
+                var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+                var match = link.match(regExp);
+                var uid = match[2];
+                var url = "//www.youtube.com/embed/uid";
+                 $("#ytv_frame").prop('src', url);
+                 alert(uid);
+                     });
 });
