@@ -14,7 +14,6 @@ ActiveAdmin.register Album do
   end
   end
    div class:"col-md-2",id:"dvPreview"do
-      p "ndcjksndk"
       end
   f.actions
 end

@@ -30,7 +30,7 @@
                   <h2><%= post.title %></h2>
                   <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
                   <%=image_tag(post.image.url ,class:"img-responsive") if post.image.present?%>
-                  <p> <%= Post.last.content%> </p>
+                  <p> <%= post.content%> </p>
                   <center>
                   <%=video_tag(post.video.url ,class:"img-responsive",  controls: true, autobuffer: true ,size: "400x200") if post.video.present?%>
                   </center>
