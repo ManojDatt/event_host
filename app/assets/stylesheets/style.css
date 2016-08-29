@@ -425,7 +425,7 @@ i.lik {
 .biographys {
 	margin-top: 2em;
 	background: #fff;
-	padding: 2em 1.5em;
+	padding: 2em 0.5em 0em;
 	box-shadow: 0px 1px 4px 0px rgba(104, 123, 144, 0.31);
 	border-radius: 0.3em;
 }
