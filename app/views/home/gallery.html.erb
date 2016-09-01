@@ -5,7 +5,7 @@
   </script>
 
   <div class="content">
-    <div class="container" style="padding: 100px;">
+    <div class="container" style="padding: 100px 5px;">
       <div class="container-fluid dapibus">
         <%@albums.each do |album|%>
         <div class="row">
@@ -17,19 +17,16 @@
                 <h5>Ut wisi enim ad minim veniam, quis nostrud exerci ksjdfkndskjgn kjenrkfdv  dnfv d sjefjfgoiven  idnrvfkend ox idnfkvnd jndf or iom vi oikm knon knoek mwoenw  v nwesofnvk nonkiwngevnodf vk owe sivknxokv on wk ovw ekind eknodkfx vnkwe vkensoen.</h5>
               </div>
             </div>
-          <div >
-            <%album.images.each do |image|%>
-            <div class="responsive">
-              <div class="img">
-                <%=image_tag( image.avatar.url ) %>
-              </div>
-            </div>
-            <%end%>
           </div>
         </div>
+        <!-- /.row -->
+        <div class="row margin-b-2">
+          <%album.images.each do |image|%>
+          <div class="col-sm-6 col-md-3">
+            <%=image_tag( image.avatar.url ,class:"img-responsive thumbnail") %>
+          </div>
+          <%end%>
         </div>
-         <div class="clearfix"></div> 
-         <hr>
         <%end%>
       </div>
     </div>
