@@ -35,8 +35,7 @@
                 var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
                 var match = link.match(regExp);
                 var uid = match[2];
-                var url = "//www.youtube.com/embed/uid";
+                var url = "//www.youtube.com/embed/"+uid;
                  $("#ytv_frame").prop('src', url);
-                 alert(uid);
                      });
 });

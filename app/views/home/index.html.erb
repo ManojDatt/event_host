@@ -1,169 +1,180 @@
-
-
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1" >
-  <div class="container" style="width:1250px;">
-    <h3 class="text-center">EVENTS DATE</h3>
-    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
-
-    <br>
-   <!--===========================  Slider start ========================-->
-    <script>
-        jQuery(document).ready(function ($) {
-
+<script>
+        jssor_1_slider_init = function() {
+            
+            var jssor_1_SlideoTransitions = [
+              [{b:5500,d:3000,o:-1,r:240,e:{r:2}}],
+              [{b:-1,d:1,o:-1,c:{x:51.0,t:-51.0}},{b:0,d:1000,o:1,c:{x:-51.0,t:51.0},e:{o:7,c:{x:7,t:7}}}],
+              [{b:-1,d:1,o:-1,sX:9,sY:9},{b:1000,d:1000,o:1,sX:-9,sY:-9,e:{sX:2,sY:2}}],
+              [{b:-1,d:1,o:-1,r:-180,sX:9,sY:9},{b:2000,d:1000,o:1,r:180,sX:-9,sY:-9,e:{r:2,sX:2,sY:2}}],
+              [{b:-1,d:1,o:-1},{b:3000,d:2000,y:180,o:1,e:{y:16}}],
+              [{b:-1,d:1,o:-1,r:-150},{b:7500,d:1600,o:1,r:150,e:{r:3}}],
+              [{b:10000,d:2000,x:-379,e:{x:7}}],
+              [{b:10000,d:2000,x:-379,e:{x:7}}],
+              [{b:-1,d:1,o:-1,r:288,sX:9,sY:9},{b:9100,d:900,x:-1400,y:-660,o:1,r:-288,sX:-9,sY:-9,e:{r:6}},{b:10000,d:1600,x:-200,o:-1,e:{x:16}}]
+            ];
+            
             var jssor_1_options = {
               $AutoPlay: true,
-              $AutoPlaySteps: 1,
-              $SlideDuration: 500,
-              $SlideWidth: 292,
-              $SlideSpacing: 10,
-              $Cols: 4,
+              $SlideDuration: 800,
+              $SlideEasing: $Jease$.$OutQuint,
+              $CaptionSliderOptions: {
+                $Class: $JssorCaptionSlideo$,
+                $Transitions: jssor_1_SlideoTransitions
+              },
               $ArrowNavigatorOptions: {
-                $Class: $JssorArrowNavigator$,
-                $Steps: 1
+                $Class: $JssorArrowNavigator$
               },
               $BulletNavigatorOptions: {
-                $Class: $JssorBulletNavigator$,
-                $SpacingX: 1,
-                $SpacingY: 1
+                $Class: $JssorBulletNavigator$
               }
             };
-
+            
             var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
-
+            
             //responsive code begin
             //you can remove responsive code if you don't want the slider scales while window resizing
             function ScaleSlider() {
                 var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
                 if (refSize) {
-                    refSize = Math.min(refSize, 1200);
+                    refSize = Math.min(refSize, 1520);
                     jssor_1_slider.$ScaleWidth(refSize);
                 }
                 else {
-                    window.setTimeout(ScaleSlider, 50);
+                    window.setTimeout(ScaleSlider, 30);
                 }
             }
             ScaleSlider();
-            $(window).bind("load", ScaleSlider);
-            $(window).bind("resize", ScaleSlider);
-            $(window).bind("orientationchange", ScaleSlider);
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
             //responsive code end
-        });
+        };
     </script>
 
+    <style>
+      
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+      
+            width: 16px;
+            height: 16px;
+            background: url('assets/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { background-position: -7px -7px; }
+        .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+        .jssorb05 .av { background-position: -67px -7px; }
+        .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+        .jssora22l, .jssora22r {
+            display: block;
+            position: absolute;
+            
+            width: 40px;
+            height: 58px;
+            cursor: pointer;
+            background: url('assets/a22.png') center center no-repeat;
+            overflow: hidden;
+        }
+        .jssora22l { background-position: -10px -31px; background-color: #000; opacity: 0.6; border-radius:4px; }
+        .jssora22r { background-position: -70px -31px; background-color: #000; opacity: 0.6; border-radius:4px;}
+        .jssora22l:hover { background-position: -130px -31px; opacity: 0.7; }
+        .jssora22r:hover { background-position: -190px -31px; opacity: 0.7; }
+        .jssora22l.jssora22ldn { background-position: -250px -31px; }
+        .jssora22r.jssora22rdn { background-position: -310px -31px; }
+    </style>
+    <br><br><br>
+<div class="bg-1" style="margin: 0 auto;">
  
-
-
-    <div id="jssor_1" class="jumbotron " style="position: relative; box-shadow:1px 1px 20px 5px white; margin: 0 auto; top: 0px; left: -100px; width: 1200px; height: 450px; overflow: hidden; visibility: hidden;">
-
-        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1200px; height: 450px; overflow: hidden;">
-
-
-
-
-         <% @events.each do |event|%>
-
-        <div class="thumbnail">
-          <%=image_tag( event.image.url , class:"img-responsive")%>
-           <center>
-          <div class="panel panel-default">
-            <div class="panel-heading" style="background:#333333;">
-              <h3 class="panel-title">Event Heading</h3>
+    <div id="jssor_1" style="position: relative; margin: 0 auto;   left: 0px; width: 1350px; height: 400px; overflow: hidden; visibility: hidden;">
+        <!-- Loading Screen -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">
             </div>
-            <div class="panel-body">
-            Event short discription..
-              <%=link_to"View Details", event_path(event.id) , class:"btn"%>
+            <div style="position:absolute;display:block;background:url('assets/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;">
             </div>
-          </div>
-          </center>
         </div>
-
-        <%end%>
-
-      </div>
+        <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1350px; height: 400px; overflow: hidden;">
+            
+           <% @live_events.each do |event|%>
+            <div data-p="225.00" data-po="80% 55%" style="display: none;">
+                <%=image_tag(event.image.url, class:"header-img",html:{"data-u"=>"image"})%>
+                <div style="position: absolute; top: 100px; left: 440px; width: 480px; height: 50px; font-size: 20px;  line-height: 60px;">
+                  <h1 style=" color:white; margin-top:-90px;"><%=event.ev_name%></h1> 
+                  <%=link_to"  Participate Now ..",event_path(event.id) ,class:"btn btn-info  btn-lg btn-block  "%><br>
+                  <h6 class="span" style="opacity:1; color:white;">(By participating you agree to our terms of events)</h6>
+               </div>
+            </div>
+            <% end%>
+        </div>
         <!-- Bullet Navigator -->
-       
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+        <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
         <!-- Arrow Navigator -->
-        <span data-u="arrowleft" class="jssora03l" style="top:0px;left:8px;width:55px;height:55px;" data-autocenter="2"></span>
-        <span data-u="arrowright" class="jssora03r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:12px;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
     </div>
-
+    <script>
+        jssor_1_slider_init();
+    </script>
     <!-- #endregion Jssor Slider End -->
-</div>
-</div>
+<!-- Container (TOUR Section) -->
+ </div>
 
-   
- 
+<script>
+    $(document).ready(function () {
+        size_li = $("#myList li").size();
+        x=3;
+        $('#myList li:lt('+x+')').show();
+        $('#loadMore').click(function () {
+            x= (x+1 <= size_li) ? x+1 : size_li;
+            $('#myList li:lt('+x+')').show();
+        });
+        $('#showLess').click(function () {
+            x=(x-1<0) ? 1 : x-1;
+            $('#myList li').not(':lt('+x+')').hide();
+        });
+    });
+  </script>
 
 
-<div id="band" class="container text-center">
-  <h3>THE BAND</h3>
-  <%=image_tag("banner.jpg", class:"img-responsive img-circle")%>
-  <p><em>We love dance-music!</em></p>
-  <p>We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <br>
-  <div class="row">
-    <div class="col-sm-4">
+  <div class="content">
+    <div class="container" style="padding: 5px 5px;">
+        <ul id="myList">
+          <li>
 
-       <div class="panel-group">
-          <div class="panel panel-default">
-           <div class="panel-heading">
-             <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse1">FOUNDER NAME-1</a>
-              </h4>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse">
-              <div class="panel-body">Discription about founder
-                <p>Guitarist and Lead Vocalist</p>
-                <p>Loves long walks on the beach</p>
-                <p>Member since 1988</p>
+            <div class="l_g">
+              <div>
+                <div class="l_g_r">
+                  <div class="dapibus">
+                   <%if @posts.present? %>
+                   <%@posts.each do |post|%>
+                    <h2><%= post.title %></h2>
+                    <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
+                    <center><%=image_tag(post.image.url ,class:"img-responsive") if post.image.present?%></center>
+                    <p> <%= post.content%> </p>
+                    <center>
+                      <%=video_tag(post.video.url ,class:"img-responsive",  controls: true, autobuffer: true ,size: "400x200") if post.video.present?%>
+                    </center>
+                    <hr>
+                    <%end%>  
+                   <%end%>  
+                  </div>
+                </div>
               </div>
-              <div class="panel-footer"><a href="#contact">Contact</a></div>
+              <div class="clearfix"></div> 
             </div>
-          </div>
-        </div>
+          </li>
+     
+        </ul>
+
     </div>
-    <div class="col-sm-4">
-      <div class="panel-group">
-          <div class="panel panel-default">
-           <div class="panel-heading">
-             <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse2">FOUNDER NAME-2</a>
-              </h4>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-              <div class="panel-body">Discription about founder
-                <p>Guitarist and Lead Vocalist</p>
-                <p>Loves long walks on the beach</p>
-                <p>Member since 1988</p>
-              </div>
-              <div class="panel-footer"><a href="#contact">Contact</a></div>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="panel-group">
-          <div class="panel panel-default">
-           <div class="panel-heading">
-             <h4 class="panel-title">
-                <a data-toggle="collapse" href="#collapse3">FOUNDER NAME-3</a>
-              </h4>
-            </div>
-            <div id="collapse3" class="panel-collapse collapse">
-              <div class="panel-body">Discription about founder
-                <p>Guitarist and Lead Vocalist</p>
-                <p>Loves long walks on the beach</p>
-                <p>Member since 1988</p>
-              </div>
-              <div class="panel-footer"><a href="#contact">Contact</a></div>
-            </div>
-          </div>
-        </div>
-
+     <%=render 'contactus'%>
   </div>
-</div>
-</div>
-<hr>
-<hr>
-<%=render 'contactus'%>
+

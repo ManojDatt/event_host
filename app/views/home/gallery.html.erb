@@ -3,25 +3,35 @@
       $(".swipebox").swipebox();
     });
   </script>
-  <div class="photos">
-    <div class="container">
-    <h2>Albums</h2>
-      <!-- portfolio-section -->
-      <%@albums.each do |album|%>
-      <div class="portfolio"  id="portfolio">
-        <div id="portfoliolist">
-          <h4> <%= raw(album.title)%></h4>
-          <%album.images.each do |image|%>
-          <div class="portfolio app mix_all  wow bounceIn" data-wow-delay="0.4s" data-cat="app" style="display: inline-block; opacity: 1;">
-            <div class="portfolio-wrapper grid_box last">
-              <%=image_tag( image.avatar.url ,size: "150x200",class:"img-responsive") %><span class="zoom-icon"></span> </a>
+
+  <div class="content">
+    <div class="container" style="padding: 100px;">
+      <div class="container-fluid dapibus">
+        <%@albums.each do |album|%>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="page-header">
+              <h1><%= album.title%></h1>
+              <p>Posted by <span class="glyphicon glyphicon-user"></span> <a href="#">Admin</a> on <span class="glyphicon glyphicon-time"></span> <%= album.updated_at%></p>
+              <div class="caption">
+                <h5>Ut wisi enim ad minim veniam, quis nostrud exerci ksjdfkndskjgn kjenrkfdv  dnfv d sjefjfgoiven  idnrvfkend ox idnfkvnd jndf or iom vi oikm knon knoek mwoenw  v nwesofnvk nonkiwngevnodf vk owe sivknxokv on wk ovw ekind eknodkfx vnkwe vkensoen.</h5>
+              </div>
             </div>
+          <div >
+            <%album.images.each do |image|%>
+            <div class="responsive">
+              <div class="img">
+                <%=image_tag( image.avatar.url ) %>
+              </div>
+            </div>
+            <%end%>
           </div>
-          <%end%>   
-          <div class="clearfix"></div>
         </div>
-        <div class="clearfix"></div>
+        </div>
+         <div class="clearfix"></div> 
+         <hr>
+        <%end%>
       </div>
-      <%end%>
     </div>
   </div>
+

@@ -1,0 +1,5 @@
+$(".comments-for-<%= @comment.event_id%>").append("<%= j render(:partial => 'comment', :locals => {:comment => @comment}) %>");	
+$('.comment-input-<%= @comment.event_id%>').val('');
+$('.comment-name-<%= @comment.event_id%>').val('');
+$('.comment-email-<%= @comment.event_id%>').val('');
+$('.user-comment-#{@comment.event_id}').append('<%= j @comment.user_name%>');
