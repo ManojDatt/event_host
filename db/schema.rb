@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831143726) do
+ActiveRecord::Schema.define(version: 20160902073532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160831143726) do
     t.date     "event_date"
     t.integer  "status"
     t.text     "description"
+    t.string   "cover"
   end
 
   create_table "images", force: :cascade do |t|
@@ -137,6 +138,9 @@ ActiveRecord::Schema.define(version: 20160831143726) do
     t.datetime "updated_at", null: false
     t.string   "uid"
     t.text     "desc"
+    t.string   "adder_type"
+    t.integer  "adder_id"
+    t.index ["adder_type", "adder_id"], name: "index_you_tube_videos_on_adder_type_and_adder_id", using: :btree
   end
 
   add_foreign_key "comments", "events"

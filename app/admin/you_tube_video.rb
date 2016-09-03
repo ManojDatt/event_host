@@ -1,6 +1,6 @@
 ActiveAdmin.register YouTubeVideo do
 
- permit_params :uid,:link,:title
+ permit_params :uid,:link,:title,:adder_type,:adder_id,:desc
 
 index do 
  column :id
@@ -20,12 +20,16 @@ end
     	 div class:"col-md-5"do
               f.inputs :link
               f.inputs :title
+              f.inputs do 
+                f.input  :adder_type, :as => :select, :collection => ["Event", "Post"] 
+              end
+              f.inputs :adder_id
               f.inputs :desc
        end
        div class:"col-md-2",id:"video_review"do
               br
               text_node %{<iframe id="ytv_frame" width="300" height="175"  frameborder="0" allowfullscreen></iframe> }.html_safe
        end
-      f.actions
+      actions
   end 
 end

@@ -52,6 +52,7 @@
     </script>
 
     <style>
+    
       
         .jssorb05 {
             position: absolute;
@@ -86,11 +87,51 @@
         .jssora22r:hover { background-position: -190px -31px; opacity: 0.7; }
         .jssora22l.jssora22ldn { background-position: -250px -31px; }
         .jssora22r.jssora22rdn { background-position: -310px -31px; }
+
+
+.banner-btn {
+    color: #ffffff;
+    background-color: #99bb00;
+    background-image: linear-gradient(to bottom, #99bb00, #99bb00);
+    border-color: #99bb00 #99bb00 #99bb00;
+    padding:5px;border-radius:2px
+}
+.banner-btn:hover {
+    color: #ffffff;
+    background-color: #99bb00;
+    background-image: linear-gradient(to bottom, #99bb00, #99bb00);
+    border-color: #99bb00 #99bb00 #99bb00;
+    padding:5px;border-radius:2px
+}
+
+
+/*background:#4a83d7;color:#fff;position:absolute;left:-10px;top:15px;font-size:16px;box-shadow:0 2px 4px #1d1d1d;padding: 5px 20px;*/
+
+        .event-title{
+
+              background: rgba(0, 0, 0, 0) -moz-linear-gradient(left center , rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.15) 40%, rgba(0, 0, 0, 0) 70%) repeat scroll 0 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    height: 40px;
+    left: 0;
+    margin-top: -9px;
+    line-height: 38px;
+    padding: 0 10px;
+    position: absolute;
+    top: 10px;
+    width: 90%;
+    box-shadow:-5px 2px 4px #1d1d1d;
+        }
+        .event-type{
+          background:#73b369 ;color:white; float:left; padding:5px; border-radius:5px;box-shadow:-2px 2px 4px #1d1d1d;
+        }
     </style>
     <br><br><br>
 <div class="bg-1" style="margin: 0 auto;">
  
-    <div id="jssor_1" style="position: relative; margin: 0 auto;   left: 0px; width: 1350px; height: 400px; overflow: hidden; visibility: hidden;">
+    <div id="jssor_1" style=" border-bottom: 1px solid #888888; box-shadow: 0px 2px 5px rgb(136, 136, 136);position: relative; margin: 0 auto;   left: 0px; width: 1350px; height: 400px; overflow: hidden; visibility: hidden;">
         <!-- Loading Screen -->
         <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;">
@@ -101,12 +142,14 @@
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1350px; height: 400px; overflow: hidden;">
             
            <% @live_events.each do |event|%>
-            <div data-p="225.00" data-po="80% 55%" style="display: none;">
-                <%=image_tag(event.image.url, class:"header-img",html:{"data-u"=>"image"})%>
+            <div data-p="225.00" data-po="80% 55%" style="display: none;box-shadow: 0 1px 1px 0 rgba(159,167,194,0.6);">
+                <%=image_tag(event.image.url, class:"header-img img-responsive",html:{"data-u"=>"image"})%>
                 <div style="position: absolute; top: 100px; left: 440px; width: 480px; height: 50px; font-size: 20px;  line-height: 60px;">
                   <h1 style=" color:white; margin-top:-90px;"><%=event.ev_name%></h1> 
-                  <%=link_to"  Participate Now ..",event_path(event.id) ,class:"btn btn-info  btn-lg btn-block  "%><br>
-                  <h6 class="span" style="opacity:1; color:white;">(By participating you agree to our terms of events)</h6>
+                  <a href="<%=event_path(event.id)%>" class="banner-btn">Participate Now <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+
+                  <br>
+                  <h5 class="span" style="opacity:1; color:white;">(By participating you agree to our terms of events)</h5>
                </div>
             </div>
             <% end%>
@@ -145,36 +188,99 @@
 
 
   <div class="content">
-    <div class="container" style="padding: 5px 5px;">
-        <ul id="myList">
-          <li>
-
-            <div class="l_g">
-              <div>
-                <div class="l_g_r">
-                  <div class="dapibus">
-                   <%if @posts.present? %>
-                   <%@posts.each do |post|%>
-                    <h2><%= post.title %></h2>
-                    <p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
-                    <center><%=image_tag(post.image.url ,class:"img-responsive") if post.image.present?%></center>
-                    <p> <%= post.content%> </p>
-                    <center>
-                      <%=video_tag(post.video.url ,class:"img-responsive",  controls: true, autobuffer: true ,size: "400x200") if post.video.present?%>
-                    </center>
-                    <hr>
-                    <%end%>  
-                   <%end%>  
+    <div class="container " style="padding: 5px 5px;">
+      <ul id="myList">
+        <li>
+          <div class="l_g">
+            <div class="l_g_r">
+              <div class="dapibus">
+                <!-- live events -->
+                  <div class="event-type"> Live Events</div>
+                  <div class="row" style="padding:3em 1em 0em 1em">
+                    <%if @live_events.present?%>
+                    <% @live_events.each do |event|%>
+                    <div class="col-md-3 custom-list">
+                      <div class="panel panel-default">
+                        <div class="event-title"><%= event.ev_name%></div>
+                        <div class="panel-body">
+                          <%=image_tag (event.image_url(:admin_show) ), class:"img-responsive"%>
+                        </div> 
+                        <div style="text-align:center">
+                        <h3 style="text-align:center">EVENT DATE</h3>
+                        <%= event.event_date%>
+                        </div>
+                        <div class="panel-footer clearfix">
+                          <div style=" text-align:center; ">
+                         <a href="<%=event_path(event.id)%>" class="banner-btn" style="border-radius:5px;background:#99bb00">Participate Now <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%end%>
+                    <%end%>
                   </div>
-                </div>
+                  <hr>
+                  <!-- completed events -->
+                  <div class="event-type"> Upcomming  Events</div> 
+                  <div class="row" style="padding:3em 1em 0em 1em">
+                    <%if @upcomming_events.present?%>
+                    <% @upcomming_events.each do |event|%>
+                    <div class="col-md-3 custom-list">
+                      <div class="panel panel-default">
+                        <div class="event-title"><%= event.ev_name%></div>
+                        <div class="panel-body">
+                          <%=image_tag (event.image_url(:admin_show) ), class:"img-responsive"%>
+                        </div> 
+                        <div style="text-align:center">
+                        <h3 style="text-align:center">EVENT DATE</h3>
+                        <%= event.event_date%>
+                        </div>
+                        <div class="panel-footer clearfix">
+                          <div style=" text-align:center; ">
+                          <a href="#" class="btn btn-success btn-xs" style="border-radius:5px;background:#4c9cdf">Learn More <span class="glyphicon glyphicon-info-sign"></span></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%end%>
+                    <%end%>
+                  </div>
+                  <hr>
+                  <!-- upcomming events -->
+                  <div class="event-type"> completed  Events</div> 
+                  <div class="row" style="padding:3em 1em 0em 1em">
+                    <%if @deactive_events.present?%>
+                    <% @deactive_events.each do |event|%>
+                    <div class="col-md-3 custom-list">
+                      <div class="panel panel-default">
+                        <div class="event-title"><%= event.ev_name%></div>
+                        <div class="panel-body">
+                          <%=image_tag (event.image_url(:admin_show) ), class:"img-responsive"%>
+                        </div> 
+                        <div style="text-align:center">
+                        <h3 style="text-align:center">EVENT DATE</h3>
+                        <%= event.event_date%>
+                        </div>
+                        <div class="panel-footer clearfix">
+                          <div style=" text-align:center; ">
+                          <a href="#" class="btn btn-success btn-xs" style="border-radius:5px;">Learn More <span class="glyphicon glyphicon-info-sign"></span></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <%end%>
+                    <%end%>
+                  </div>
+                  <hr>
+                  <!-- end of upcomming events -->
               </div>
-              <div class="clearfix"></div> 
             </div>
-          </li>
-     
-        </ul>
-
+          </div>
+        </li>
+      </ul>
+       <%=render 'contactus'%>
     </div>
-     <%=render 'contactus'%>
+
   </div>
 
+ <!-- <div class="clearfix"></div>  -->

@@ -1,6 +1,6 @@
 class YouTubeVideo < ApplicationRecord
 
-
+belongs_to :adder , polymorphic: true
 
 YT_LINK_FORMAT = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/
  validates :link, presence: true, format: YT_LINK_FORMAT 

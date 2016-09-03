@@ -2,7 +2,9 @@ ActiveAdmin.register Event do
 
  permit_params   :ev_name, :image, :registration_opening_date,
                  :registration_closing_date, :event_date, 
-                 :status,:description, rules_attributes:[:id,:_destroy,:content]
+                 :status,:description, rules_attributes:[:id,:_destroy,:content],
+                 videos_attributes:[:id,:_destroy,:avatars],
+                 you_tube_videos_attributes:[:id,:_destroy,:link]
 
 config.batch_actions = true
   index do 
@@ -12,6 +14,29 @@ config.batch_actions = true
       column :image do |img|
         image_tag img.image_url(:admin_index)
       end
+       column "Youtube Videos" do |event|
+    columns  do
+      ul do
+        event.you_tube_videos.each do |ytd|
+          li do 
+            br
+          text_node %{<iframe id="ytv_frame" width="200" height="100" src="//www.youtube.com/embed/#{ytd.uid}" frameborder="0" allowfullscreen></iframe> }.html_safe
+           end
+        end
+      end
+    end
+  end
+       column "Videos" do |event|
+    columns  do
+      ul do
+        event.videos.each do |vdo|
+          li do 
+             video_tag(vdo.video_url, size: "150x100",controls: true)
+           end
+        end
+      end
+    end
+  end
       column "Reg Op Date", :registration_opening_date 
       column "Reg Cl Date", :registration_closing_date
       column "Ev Date", :event_date
@@ -24,8 +49,19 @@ config.batch_actions = true
         f.semantic_errors *f.object.errors.keys # shows errors on :base
         f.inputs   :ev_name 
         f.inputs :image  , as: :file 
+        f.inputs  do
+        f.has_many :videos, allow_destroy: true do |a|
+           a.input :avatars, :as => :file
+           end
+        end
+        f.inputs do
+        f.has_many :you_tube_videos, allow_destroy: true do |a|
+           a.input :link
+           end
+        end
+
         f.inputs :description
-        f.inputs :status, as: :select, collection: Event.statuses.keys
+        f.inputs :status
         f.inputs "Rules" do
           f.has_many :rules, allow_destroy: true do |a|
              a.input :content
@@ -43,4 +79,22 @@ config.batch_actions = true
       end
    f.actions 
  end
+
+ controller do 
+
+
+def create
+     @event = Event.create(find_params)
+     redirect_to admin_events_path
+end
+  private
+  def find_params 
+      params.require(:event).permit(:ev_name, :image, :registration_opening_date,
+                 :registration_closing_date, :event_date, 
+                 :status,:description, rules_attributes:[:id,:_destroy,:content],
+                 videos_attributes:[:id,:_destroy,:avatars],
+                 you_tube_videos_attributes:[:id,:_destroy,:link])
+  end
+
+end
 end
