@@ -4,7 +4,7 @@ ActiveAdmin.register Event do
                  :registration_closing_date, :event_date, 
                  :status,:description, rules_attributes:[:id,:_destroy,:content],
                  videos_attributes:[:id,:_destroy,:avatars],
-                 you_tube_videos_attributes:[:id,:_destroy,:link]
+                 you_tube_videos_attributes:[:id,:_destroy,:link,:title]
 
 config.batch_actions = true
   index do 
@@ -31,7 +31,7 @@ config.batch_actions = true
       ul do
         event.videos.each do |vdo|
           li do 
-             video_tag(vdo.video_url, size: "150x100",controls: true)
+             video_tag(vdo.avatars_url, size: "150x100",controls: true)
            end
         end
       end
@@ -57,6 +57,7 @@ config.batch_actions = true
         f.inputs do
         f.has_many :you_tube_videos, allow_destroy: true do |a|
            a.input :link
+           a.input :title
            end
         end
 

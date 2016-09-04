@@ -73,8 +73,8 @@
 											<div class="row" style="padding:3em 1em 0em 1em">
 												<%if @event.videos.present?%>
 												<%@event.videos.each do |vdo|%>
+												<div class="col-md-6 custom-list">
 												<div class="panel panel-default">
-													<div class="panel-heading"><%= @vdo.title%></div>
 													<div class="panel-body">
 														<%=video_tag(vdo.avatars.url, class:"img-responsive",controls: true, autobuffer: true,size: "400x200")%>
 													</div> 
@@ -84,6 +84,7 @@
 															<%= vdo.updated_at%>
 														</div>
 													</div>
+												</div>
 												</div>
 												<%end%>
 												<%end%>
@@ -97,11 +98,10 @@
 										<div class="panel-body">
 											<div class="row" style="padding:3em 1em 0em 1em">
 												<%if @event.you_tube_videos.present?%>
-												<%if @upcomming_events.present?%>
 												<%@event.you_tube_videos.each do |ytdo|%>
 												<div class="col-md-4 custom-list">
 													<div class="panel panel-default">
-														<div class="panel-heading event-title">Title</div>
+														<div class="panel-heading event-title"><%= ytdo.title%></div>
 														<div class="panel-body">
 															<div class='embed-container'><iframe src='http://www.youtube.com/embed/<%=ytdo.uid%>' frameborder='0' allowfullscreen></iframe>
 															</div> 
@@ -111,7 +111,6 @@
 														</div>
 													</div>
 												</div>
-												<%end%>
 												<%end%>
 												<%end%>
 											</div>
