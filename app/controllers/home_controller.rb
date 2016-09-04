@@ -4,7 +4,6 @@ class HomeController < ApplicationController
     @live_events = Event.live_events
     @deactive_events = Event.deactive_events
     @upcomming_events= Event.upcomming_events
-    @posts = Post.all.order('updated_at DESC')
   end
   def show_event
     @user = User.new   
