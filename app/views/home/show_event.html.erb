@@ -65,6 +65,18 @@
 											<%= raw(@event.description) if @event.description.present?%>
 										</div>
 									</div>
+									
+									<div class="panel panel-default">
+									<div class="panel-heading">TERMS AND CONDITIONS</div>
+									<div class="panel-body">
+									<%if @event.rules.present?%>
+									<%count = 0 %>
+									<% @event.rules.each do |rule|%>
+									<%=count+=1%>. &nbsp <%= rule.content %> <br>
+									<%end%>
+									<%end%>
+									</div>
+									</div>
 									<!-- event deatails close -->
 									<!-- video  -->
 									<div class="panel panel-primary">
