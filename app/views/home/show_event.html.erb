@@ -1,183 +1,142 @@
 
-
-
-
-
-
-
-
-
 <style type="text/css">
 
-.table .th .tr .td{
-border:1px solid black;
-}
+	.table .th .tr .td{
+		border:1px solid black;
+	}
 
-
-</style>>
-
-
-
-
-
-
-
-
-
-
+	.event-title{
+		background: rgba(51, 204, 255, 0) -moz-linear-gradient(left center , rgba(51, 204, 255, 0.8) 0px, rgba(51, 204, 255, 0.15) 40%, rgba(151, 204, 255, 0) 70%) repeat scroll 0 0;
+		box-sizing: border-box;
+		color: #fff;
+		font-size: 12px;
+		font-weight: 600;
+		/*left: 0;*/
+		/*margin-top: -9px;*/
+		/*padding: 0 10px;*/
+		/*position: absolute;*/
+		/*width: 90%;*/
+		box-shadow:-5px 2px 4px #bdbdbd;
+	}
+</style>
 
 <script>
-$(document).ready(function () {
-size_li = $("#myList li").size();
-x=3;
-$('#myList li:lt('+x+')').show();
-$('#loadMore').click(function () {
-x= (x+1 <= size_li) ? x+1 : size_li;
-$('#myList li:lt('+x+')').show();
-});
-$('#showLess').click(function () {
-x=(x-1<0) ? 1 : x-1;
-$('#myList li').not(':lt('+x+')').hide();
-});
-});
+	$(document).ready(function () {
+		size_li = $("#myList li").size();
+		x=3;
+		$('#myList li:lt('+x+')').show();
+		$('#loadMore').click(function () {
+			x= (x+1 <= size_li) ? x+1 : size_li;
+			$('#myList li:lt('+x+')').show();
+		});
+		$('#showLess').click(function () {
+			x=(x-1<0) ? 1 : x-1;
+			$('#myList li').not(':lt('+x+')').hide();
+		});
+	});
 </script>
+
+
+
 
 
 <div class="content">
 	<div class="container" style="padding: 100px 5px;">
 		<div class="col-md-9" >
-			<ul>
+			<ul id="myList">
 				<li>
 					<%if @event.present? %>
 					<div class="l_g">
-						<div class="col-md-12 praesent">
 							<div class="l_g_r">
 								<div class="dapibus">
 									<!-- event detail -->
-									<div class="panel panel-default">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
-										<h2><%= @event.ev_name %></h2>
-										<p class="adm">Posted by <a href="#">Admin</a>  |  7 days ago</p>
+											<%= @event.ev_name.upcase %>
 										</div>
 										<div class="panel-body">
-										<%= image_tag(@event.image.url, size: "880x400", class:"img-responsive")%>
+											<%= image_tag(@event.image.url, size: "880x400", class:"img-responsive")%>
 										</div>
-										</div>
-										<div class="panel panel-default">
+									</div>
+									<div class="panel panel-primary">
 										<div class="panel-heading">DESCRIPTION</div>
-										<div class="panel-body">
-										<%= raw(@event.description) if @event.description.present?%>
+										<div class="panel-body" style="text-align: justify;">
+											<%= raw(@event.description) if @event.description.present?%>
 										</div>
-										</div>
+									</div>
+
+									<div class="panel panel-primary">
+									<div class="panel-heading">TERMS AND CONDITIONS</div>
+									<div class="panel-body" style="text-align: justify;">
+									<%if @event.rules.present?%>
+									<%count = 0 %>
+									<% @event.rules.each do |rule|%>
+									<%=count+=1%>. &nbsp <%= rule.content %> <br>
+									<%end%>
+									<%end%>
+									</div>
+									</div>
 									<!-- event deatails close -->
 									<!-- video  -->
-									    <div class="panel panel-default">
+									<div class="panel panel-primary">
 										<div class="panel-heading">VIDEOS</div>
 										<div class="panel-body">
-										<div class="row" style="padding:3em 1em 0em 1em">
-										<%if @event.videos.present?%>
-										<%@event.videos.each do |vdo|%>
-										<div class="panel panel-default">
-										<div class="panel-heading"><%= @vdo.title%></div>
-										<div class="panel-body">
-										<%=video_tag(vdo.avatars.url, class:"img-responsive",controls: true, autobuffer: true,size: "400x200")%>
-										</div> 
-										<div class="panel-footer clearfix">
-										<div style=" text-align:center; ">
-										<h5 style="text-align:center">updated at</h5>
-										<%= vdo.updated_at%>
+											<div class="row" style="padding:3em 1em 0em 1em">
+												<%if @event.videos.present?%>
+												<%@event.videos.each do |vdo|%>
+												<div class="col-md-6 custom-list">
+												<div class="panel panel-default">
+													<div class="panel-body">
+														<%=video_tag(vdo.avatars.url, class:"img-responsive",controls: true, autobuffer: true,size: "400x200")%>
+													</div> 
+													<div class="panel-footer clearfix">
+														<div style=" text-align:center; ">
+															<h5 style="text-align:center">updated at</h5>
+															<%= vdo.updated_at%>
+														</div>
+													</div>
+												</div>
+												</div>
+												<%end%>
+												<%end%>
+											</div>
 										</div>
-										</div>
-										</div>
-										<%end%>
-										<%end%>
-										</div>
-										</div>
-										</div>
+									</div>
 									<!-- close video -->
 									<!-- you tube videos -->
-									<div class="panel panel-default">
+									<div class="panel panel-primary">
 										<div class="panel-heading">YOUTUBE VIDEOS</div>
 										<div class="panel-body">
-										<div class="row" style="padding:3em 1em 0em 1em">
-										<%if @event.you_tube_videos.present?%>
-										<%@event.you_tube_videos.each do |ytdo|%>
-										<div class="panel panel-default">
-										<div class="panel-heading"><%= ytdo.title%></div>
-										<div class="panel-body">
-										<div class='embed-container'><iframe src='http://www.youtube.com/embed/<%=ytdo.uid%>' frameborder='0' allowfullscreen></iframe>
+											<div class="row" style="padding:3em 1em 0em 1em">
+												<%if @event.you_tube_videos.present?%>
+												<%@event.you_tube_videos.each do |ytdo|%>
+												<div class="col-md-6 custom-list">
+													<div class="panel panel-default">
+														<div class="panel-heading event-title"><%= ytdo.title%></div>
+														<div class="panel-body">
+															<div class='embed-container'><iframe src='http://www.youtube.com/embed/<%=ytdo.uid%>' frameborder='0' allowfullscreen></iframe>
+															</div> 
+															<div class="panel-footer clearfix" style=" text-align:center; ">
+																<p> Discription</p>
+															</div>
+														</div>
+													</div>
+												</div>
+												<%end%>
+												<%end%>
+											</div>
 										</div>
-										</div> 
-										<div class="panel-footer clearfix">
-										<div style=" text-align:center; ">
-										<h5 style="text-align:center">updated at</h5>
-										<%= ytdo.updated_at%>
-										</div>
-										</div>
-										</div>
-										<%end%>
-										<%end%>
-										</div>
-										</div>
-										</div>
+									</div>
 									<!-- youtube video close -->
-								</div>
-							</div>
-							<div class="clearfix"></div> 
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<%end%>
-		<!-- side bar -->
-		<div class="col-md-3">
-<div class="l_g_r">
-<div class="dapibus" >
-<div class="panel panel-default">
-<div class="panel-heading">Overview</div>
-<div class="panel-body">
-<div class="table-responsive">          
-<table class="table">
-<tbody>
-<tr><th class="info"> Opens on:</th><td><%=@event.registration_opening_date%></td></tr>
-<tr><th class="info"> Closes on:</th><td><%=@event.registration_closing_date%></td></tr>
-<tr><th class="info"> Event on:</th><td><%=@event.event_date%></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-		<!-- side bar closed -->
-		<div class="panel panel-default">
-			<div class="panel-heading">TERMS AND CONDITIONS</div>
-			<div class="panel-body">
-				<%if @event.rules.present?%>
-				<%count = 0 %>
-				<% @event.rules.each do |rule|%>
-				<%=count+=1%>. &nbsp <%= rule.content %> <br>
-				<%end%>
-				<%end%>
-			</div>
-		</div>
-		<!-- modal calling  -->
-		<div class="well">
-			<button class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModal">Subscribe Event !</button>
-		</div>
-		<!-- model calling end -->
-		<!-- comments -->
-		<div class="comments1">
-<h4>COMMENTS</h4>
-<div class="comments-main">
+<div class="panel panel-success">
+<div class="panel-heading">COMMENTS</div>
+<div class="panel-body" style="text-align: justify;">
 <div class="col-md-2 cmts-main-left">
 <%=image_tag("avatar.png",class:"img-responsive")%>
 </div>
 <div class="col-md-10 cmts-main-right">
 <h5>TOM BROWN</h5>
-<p>Vivamus congue turpis in augue pellentesque scelerisque. Pellentesque aliquam laoreet sem nec ultrices. Fusce blandit nunc vehicula massa vehicula tincidunt. Nam venenatis cursus urna sed gravida. Ut tincidunt elit ut quam malesuada consequat. Sed semper purus sit amet lorem elementum faucibus.</p>
+<p style="text-align: justify;">Vivamus congue turpis in augue pellentesque scelerisque. Pellentesque aliquam laoreet sem nec ultrices. Fusce blandit nunc vehicula massa vehicula tincidunt. Nam venenatis cursus urna sed gravida. Ut tincidunt elit ut quam malesuada consequat. Sed semper purus sit amet lorem elementum faucibus.</p>
 <div class="cmts">
 <div class="cmnts-left">
 <p>On April 14, 2014, 18:01</p>
@@ -191,110 +150,146 @@ $('#myList li').not(':lt('+x+')').hide();
 </div>
 <div class="clearfix"></div>
 </div>
-</div>
-<div class="lev">
-<div class="leave">
+<hr>
+<div class="lev" style="padding:10px;">
+<div class="leave" style="display: inline-block">
 <h4>Leave a comment</h4>
-</div>
-<%=nested_form_for :comment, url:event_path(@event) do |f|%>
-<label for="author">Name</label>
-<%=f.text_field :name, class:"form-control"%>
-<label for="author">Email</label>
-<%=f.text_field :email, class:"form-control"%>
-<label for="author">Comment</label>
-<%=f.text_area :name, class:"form-control"%>
-<div class="clearfix"></div>
-<%=f.submit"Send", class:"btn btn-default btn-lg btn-block"%>
-<div class="clearfix"></div>
+</div
+ <%=nested_form_for :comment, url:event_path(@event) do |f|%>
+  <div class="form-group">
+      <div class="form-group">
+    <label for="name">Name:</label>
+    <%=f.text_field :email, class:"form-control"%>
+  </div>
+    <label for="email">Email</label>
+    <%=f.text_field :name, class:"form-control"%>
+  </div>
+
+  <div class="form-group">
+    <label for="cmnt">Comment:</label>
+    <%=f.text_area :name, class:"form-control"%>
+  </div>
+  <%=f.submit"Send", class:"btn btn-default btn-sm "%>
 <% end%>
 </div>
-		<!-- comment close -->
+</div>
+
+
+								</div>
+						</div>
+						<%end%>  
+					</li>
+				</ul>
+			</div>
+			<!-- side bar open -->
+			<div class="col-md-3">
+				<div class="l_g">
+					<div class="dapibus">
+						<div class="panel panel-danger">
+							<div class="panel-heading">Overview</div>
+							<div class="panel-body">
+								<div class="table-responsive">          
+									<table class="table">
+										<tbody>
+											<tr><th class="info"> Opens on:</th><td><%=@event.registration_opening_date%></td></tr>
+											<tr><th class="info"> Closes on:</th><td><%=@event.registration_closing_date%></td></tr>
+											<tr><th class="info"> Event on:</th><td><%=@event.event_date%></td></tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-default btn-lg btn-block" style="border-radius:5px;background:#99bb00" data-toggle="modal" data-target="#myModal">Register Now <span class="glyphicon glyphicon-circle-arrow-right"></span></button>
+					</div>
+				</div>
+			</div>
+			<!-- side bar close -->
+		</div>
 	</div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-<div class="modal-dialog custom-class">
-<!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal">×</button>
-<h4><span class="glyphicon glyphicon-lock"></span> Subscription</h4>
-</div>
-<div class="modal-body">
-<%=form_for @user, :url=> url_for(:controller => 'subscription', :action => 'create') do |f|%>
-<div class="col-md-6">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Your Information</h3>
-</div>
-<div class="panel-body">
-<div class="form-group">
-<%=f.label "Your Name",class:"glyphicon glyphicon-user"%>
-<%=f.text_field :name ,class:"form-control" ,id:"name", placeholder:"Enter name" %>
-</div>
-<div class="form-group">
-<%=f.label "Father's Name",class:"glyphicon glyphicon-user"%>
-<%=f.text_field :f_name ,class:"form-control" ,id:"f_name", placeholder:"Enter father's name" %>
-</div>
-<div class="form-group">
-<%=f.label "Email",class:"glyphicon glyphicon-user"%>
-<%=f.text_field :email ,class:"form-control" ,id:"email", placeholder:"Enter email" %>
-</div>
-<div class="form-group">
-<%=f.label "Mobile Number",class:"glyphicon glyphicon-user"%>
-<%=f.text_field :phone ,class:"form-control" ,id:"phone", placeholder:"Enter mobile number" %>
-</div>
-<div class="form-group">
-<%=f.label "Date Of Birth",class:"glyphicon glyphicon-user"%>
-<%=f.text_field :dob ,class:"form-control" ,id:"dob", placeholder:"Select date of birth" %>
-</div>
-<div class="form-group">
-<%=f.label "Address",class:"glyphicon glyphicon-user"%>
-<%=f.text_area :address ,class:"form-control" ,id:"address", placeholder:"Enter address" %>
-</div>
-<div class="form-group">
-<%=f.label "Your Image",class:"glyphicon glyphicon-user"%>
-<%=f.file_field :image ,class:"form-control" ,id:"image", placeholder:"Choose Image" %>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">Payment Portal</h3>
-</div>
-<div class="panel-body">
-<%= fields_for :subscriptions, f.object.subscriptions.build do |fields| %>
-<div class="form-group">
-<%=fields.label "Card Holder Name",class:"glyphicon glyphicon-user"%>
-<%=fields.text_field :name ,class:"form-control", placeholder:"Enter card holder name" %>
-</div>
-<div class="form-group">
-<%=fields.label "Card Number",class:"glyphicon glyphicon-user"%>
-<%=fields.text_field :card_number ,class:"form-control", placeholder:"Enter card number" %>
-</div>
-<div class="form-group">
-<%=fields.label "Card Expiration Date ",class:"glyphicon glyphicon-user"%>
-<%=fields.date_field :card_expire ,class:"form-control", placeholder:"Enter card expiration date" %>
-</div>
-<div class="form-group">
-<%=fields.label "Card CVV",class:"glyphicon glyphicon-user"%>
-<%=fields.password_field :card_cvv ,class:"form-control", placeholder:"Enter card cvv" %>
-</div>
-<% end %>
-</div>
-</div>
-</div>
-<%=f.submit"Pay",class:"btn btn-block"%>
-<span class="glyphicon glyphicon-ok"></span>
-<% end %>
-</div>
-<div class="modal-footer">
-<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
-<span class="glyphicon glyphicon-remove"></span> Cancel
-</button>
-</div>
-</div>
-</div>
-<!-- Model end -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog custom-class">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4><span class="glyphicon glyphicon-lock"></span> Subscription</h4>
+				</div>
+				<div class="modal-body">
+					<%=form_for @user, :url=> url_for(:controller => 'subscription', :action => 'create') do |f|%>
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Your Information</h3>
+							</div>
+							<div class="panel-body">
+								<div class="form-group">
+									<%=f.label "Your Name",class:"glyphicon glyphicon-user"%>
+									<%=f.text_field :name ,class:"form-control" ,id:"name", placeholder:"Enter name" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Father's Name",class:"glyphicon glyphicon-user"%>
+									<%=f.text_field :f_name ,class:"form-control" ,id:"f_name", placeholder:"Enter father's name" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Email",class:"glyphicon glyphicon-user"%>
+									<%=f.text_field :email ,class:"form-control" ,id:"email", placeholder:"Enter email" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Mobile Number",class:"glyphicon glyphicon-user"%>
+									<%=f.text_field :phone ,class:"form-control" ,id:"phone", placeholder:"Enter mobile number" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Date Of Birth",class:"glyphicon glyphicon-user"%>
+									<%=f.text_field :dob ,class:"form-control" ,id:"dob", placeholder:"Select date of birth" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Address",class:"glyphicon glyphicon-user"%>
+									<%=f.text_area :address ,class:"form-control" ,id:"address", placeholder:"Enter address" %>
+								</div>
+								<div class="form-group">
+									<%=f.label "Your Image",class:"glyphicon glyphicon-user"%>
+									<%=f.file_field :image ,class:"form-control" ,id:"image", placeholder:"Choose Image" %>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Payment Portal</h3>
+							</div>
+							<div class="panel-body">
+								<%= fields_for :subscriptions, f.object.subscriptions.build do |fields| %>
+								<div class="form-group">
+									<%=fields.label "Card Holder Name",class:"glyphicon glyphicon-user"%>
+									<%=fields.text_field :name ,class:"form-control", placeholder:"Enter card holder name" %>
+								</div>
+								<div class="form-group">
+									<%=fields.label "Card Number",class:"glyphicon glyphicon-user"%>
+									<%=fields.text_field :card_number ,class:"form-control", placeholder:"Enter card number" %>
+								</div>
+								<div class="form-group">
+									<%=fields.label "Card Expiration Date ",class:"glyphicon glyphicon-user"%>
+									<%=fields.date_field :card_expire ,class:"form-control", placeholder:"Enter card expiration date" %>
+								</div>
+								<div class="form-group">
+									<%=fields.label "Card CVV",class:"glyphicon glyphicon-user"%>
+									<%=fields.password_field :card_cvv ,class:"form-control", placeholder:"Enter card cvv" %>
+								</div>
+								<% end %>	
+							</div>
+						</div>
+					</div>
+					<%=f.submit"Pay",class:"btn btn-block"%>
+					<span class="glyphicon glyphicon-ok"></span>
+					<% end %>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove"></span> Cancel
+					</button>
+				</div>
+			</div>
+		</div>
+		<!-- Model end -->
