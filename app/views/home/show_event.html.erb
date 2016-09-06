@@ -80,11 +80,11 @@
 									<!-- video  -->
 									<div class="panel panel-primary">
 										<div class="panel-heading">VIDEOS</div>
-										<div class="panel-body">
+										<div class="panel-body" style="padding: 0em;">
 											<div class="row" style="padding:3em 1em 0em 1em">
 												<%if @event.videos.present?%>
 												<%@event.videos.each do |vdo|%>
-												<div class="col-md-6 custom-list">
+												<div class="col-md-6 custom-list" style="padding: 0em;">
 												<div class="panel panel-default">
 													<div class="panel-body">
 														<%=video_tag(vdo.avatars.url, class:"img-responsive",controls: true, autobuffer: true,size: "400x200")%>
@@ -106,11 +106,11 @@
 									<!-- you tube videos -->
 									<div class="panel panel-primary">
 										<div class="panel-heading">YOUTUBE VIDEOS</div>
-										<div class="panel-body">
+										<div class="panel-body" >
 											<div class="row" style="padding:3em 1em 0em 1em">
 												<%if @event.you_tube_videos.present?%>
 												<%@event.you_tube_videos.each do |ytdo|%>
-												<div class="col-md-6 custom-list">
+												<div class="col-md-6 custom-list" style="padding: 0em;">
 													<div class="panel panel-default">
 														<div class="panel-heading event-title"><%= ytdo.title%></div>
 														<div class="panel-body">
