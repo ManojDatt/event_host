@@ -15,8 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'kaminari'
 gem 'pg'
 gem 'payuindia', :git => 'git://github.com/payu-india/payuindia.git'
-gem 'payuindia', :git => 'git://github.com/payu-india/payuindia.git'
-
+gem 'ahoy_matey'
 
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # gem 'carrierwave'

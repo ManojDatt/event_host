@@ -9,6 +9,8 @@ class Event < ApplicationRecord
       accepts_nested_attributes_for :videos, :allow_destroy => true
       accepts_nested_attributes_for :you_tube_videos, :allow_destroy => true
       mount_uploader :image, AvatarUploader
+      mount_uploader :cover, AvatarUploader
+
       enum status: [:Active, :Deactive, :Upcomming]
       scope :live_events, ->{where(status: 0)}
       scope :deactive_events, ->{where(status: 1)}

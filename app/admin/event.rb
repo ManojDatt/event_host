@@ -1,6 +1,6 @@
 ActiveAdmin.register Event do
 
- permit_params   :ev_name, :image, :registration_opening_date,
+ permit_params   :ev_name, :image,:cover, :registration_opening_date,
                  :registration_closing_date, :event_date, 
                  :status,:description, rules_attributes:[:id,:_destroy,:content],
                  videos_attributes:[:id,:_destroy,:avatars],
@@ -49,6 +49,7 @@ config.batch_actions = true
         f.semantic_errors *f.object.errors.keys # shows errors on :base
         f.inputs   :ev_name 
         f.inputs :image  , as: :file 
+        f.inputs :cover, as: :file
         f.inputs  do
         f.has_many :videos, allow_destroy: true do |a|
            a.input :avatars, :as => :file
@@ -90,7 +91,7 @@ def create
 end
   private
   def find_params 
-      params.require(:event).permit(:ev_name, :image, :registration_opening_date,
+      params.require(:event).permit(:ev_name, :image,:cover , :registration_opening_date,
                  :registration_closing_date, :event_date, 
                  :status,:description, rules_attributes:[:id,:_destroy,:content],
                  videos_attributes:[:id,:_destroy,:avatars],
